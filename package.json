@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://имя_пользователя.github.io/имя_репозитория",
+  "homepage": "https://josserden.github.io/parcel-project-template-v.1.1.0",
   "scripts": {
     "dev": "parcel src/*.html --open",
-    "build": "parcel build src/*.html --public-url /имя_репозитория/"
+    "build": "parcel build src/*.html --public-url /parcel-project-template-v.1.1.0/"
   },
   "repository": {
     "type": "git",
