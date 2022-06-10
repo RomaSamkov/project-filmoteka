@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass/_example.scss"],"names":[],"mappings":"AAAA,SACE,YAAA,CAEA,YAAA,CACA,sBAAA,CACA,kBAAA,CAEA,cAAA,CACA","file":"src.8373a6d4.css","sourceRoot":"../src","sourcesContent":[".example {\n  height: 100vh;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  font-size: 60px;\n  color: #010101;\n}\n"]}
