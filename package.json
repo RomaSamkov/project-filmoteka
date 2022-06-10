@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://josserden.github.io/parcel-project-template-v.1.1.0",
+  "homepage": "https://RomaSamkov/project-filmoteka",
   "scripts": {
     "dev": "parcel src/*.html --open",
-    "build": "parcel build src/*.html --public-url /parcel-project-template-v.1.1.0/"
+    "build": "parcel build src/*.html --public-url /project-filmoteka/"
   },
   "repository": {
     "type": "git",
