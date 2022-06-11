@@ -1,0 +1,37 @@
+.film__item{
+
+} 
+.film__link{
+
+}
+
+.film__image{
+  height: 402px;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    height: 336px;
+    width: 455px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 449px;
+    width: 409px;
+  }
+
+}
+
+.info{
+margin-bottom: 10px;
+} 
+
+.info__title{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+
+} 
+.info__description{
+  color: #FF6B08;
+
+} 

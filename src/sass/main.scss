@@ -2,7 +2,6 @@
  * Главный файл стилей.
  * Все паршалы подключаются сюда.
  */
-
 // Стили для файла с примером HTML-фрагмента
 
 @import './container.scss';
@@ -10,3 +9,5 @@
 @import './example.scss';
 @import './header.scss';
 @import './my-library.scss';
+@import './card.scss';
+@import './cards-container';
