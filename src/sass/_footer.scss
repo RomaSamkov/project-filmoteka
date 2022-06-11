@@ -1,0 +1,42 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer {
+  height: 100px;
+  background-color: #f7f7f7;
+  padding-top: 28px;
+  @media screen and (min-width: 768px) {
+    height: 79px;
+  }
+  @media screen and (min-width: 1024px) {
+    height: 77px;
+  }
+}
+.footer-container {
+  text-align: center;
+}
+.footer-paragraph {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #545454;
+  @include font(14px, 400, 1.14, 0.05em);
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.18;
+  }
+}
+.second-text {
+  @media screen and (max-width: 767px) {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+
+.icon-heart {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.footer-link {
+  color: #545454;
+}
