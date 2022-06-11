@@ -1,7 +1,7 @@
 import { refs } from './refs';
-import { filmsForUser } from './api';
+import ApiServise from './api';
 
-const userFilms = new filmsForUser();
+const userFilms = new ApiServise();
 
 const onSearch = ev => {
   ev.preventDefault();
