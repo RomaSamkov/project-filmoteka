@@ -1,0 +1,19 @@
+{{#each this}}
+<li class="film__item">
+  <a class="film__link" href="{{filmURL}}"></a>
+    <img src="{{poster_path}}" alt="{{original_title}}" loading="lazy" class="film__image"/>
+  
+    <div class="info">
+      <h2 class="info__title">{{original_title}}</h2>
+      <div class="info__wrap">
+       {{#each genre_ids}}
+           <p class="info__title info__description">{{this}}</p>
+       {{/each}} 
+        <p class="info__title info__description">{{release_date}}</p>
+      </div>              
+    </div>
+         
+   </a>
+ </li>
+{{/each}}
+
