@@ -1,3 +1,5 @@
+const axios = require('axios').default;
+
 const API_KEY = 'f534638cb3304b9759e126ecf8f1bc28';
 const BASE_URL = 'https://api.themoviedb.org/3';
 // const API_URL = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
@@ -29,6 +31,9 @@ export default class ApiServise {
   }
   incrementPage() {
     this.page += 1;
+  }
+  decrementPage(){
+    this.page -= 1;
   }
   setPage(numberPage) {
     this.page = numberPage;

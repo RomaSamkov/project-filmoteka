@@ -12,3 +12,19 @@
 .film__list{
 
 }
+
+.pagination {
+    display: flex;
+}
+
+.pagination li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.pagination li.isActive {
+    background: orange;
+}
