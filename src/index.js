@@ -4,3 +4,4 @@ import './js/api.js';
 import './js/onSearchByKeyWord.js';
 import './js/renderTrendsOnMain.js';
 console.log('Hello World');
+import './js/modal.js';
