@@ -13,19 +13,19 @@ export default function renderTrendsOnMain(films) {
     .map(film => {
       const { original_title, poster_path, genre_ids, release_date, id } = film;
       return `
-        <a class="film__link" href="https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}"><img src="${IMG_URL}${poster_path}" alt="${original_title}" loading="lazy" class="film__image"/></a>
-      
-      <div class="info">
-        <h2 class="info__title">${original_title}</h2>
-        <div class="info__wrap">
-         {{#each genre_ids}}
-             <p class="info__title info__description">{{this}}</p>
-         {{/each}}
-          <p class="info__title info__description">${release_date}</p>
-        </div>
-      </div>
-
-     </a>
+        <li class="filmCard__wrap">
+    <a class="film__link" href="https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}"
+    ><img src="${IMG_URL}${poster_path}" alt="${original_title}" loading="lazy" class="film__image"
+    /></a>
+    <div class="info">
+    <h2 class="info__title">${original_title}</h2>
+    <div class="info__wrap">
+      <p class="info__genre">genre</p>
+      <div class="stick"></div>
+      <p class="info__releaseDate">${release_date}</p>
+    </div>
+    </div>
+    </li>
         `;
     })
     .join('');

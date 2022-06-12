@@ -1,5 +1,12 @@
-.section{
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
+.section{
+    padding: 60px 0;
+    width: 100%;
 }
 
 .list {
@@ -8,9 +15,81 @@
     padding: 0;
 }
 
+.film__image{
+    border-radius: 5px;
+    width: 208px;
+    height: 402px;  
+    @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 455px;
+    } 
+    @media screen and (min-width: 1024px) {
+    width: 309px;
+    height: 449px;
+    }       
+}
 
 .film__list{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+       
+}
 
+.filmCard__wrap{
+   margin-right: 16px;
+}  
+
+.info{
+    width: 208px;
+    @media screen and (min-width: 768px) {
+    width: 336px;
+    } 
+    @media screen and (min-width: 1024px) {
+    width: 309px;
+    }
+}
+
+.info__title{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 16px;
+text-transform: uppercase;
+
+
+color: #000000;
+}
+
+.info__wrap {
+    display: flex;
+    margin: 0 auto;
+    color: #FF6B08;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.info__releaseDate {
+    margin-left: 5px;
+     margin-top: 0;
+    margin-bottom: 0;
+}
+
+.info__genre {
+    margin-right: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.stick {
+    width: 1.5px;
+    height: 10px;
+    background-color: #FF6B08;
+    margin-top: 2px;
 }
 
 .pagination {
