@@ -17,6 +17,21 @@
     background-color: rgba(0, 0, 0, 0.1);
     transition: opacity 250ms, visibility 250ms;
 }
+.modal-closeButton {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-up {
     width: calc(100% - 40px);
     max-width: 450px;
