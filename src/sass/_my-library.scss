@@ -1,23 +1,34 @@
 .library__container {
-  padding: 44px 0 60px 0;
+  padding: 44px 20px 60px 20px;
   @media screen and (min-width: 768px) {
-    padding: 40px 12px 60px 12px;
+    padding: 40px 32px 60px 32px;
+  }
+}
+.header__navigation--library {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
   }
 }
 .my-library {
-  background-color: rgba(0, 0, 0, 0.56);
-  background-image: url(../images/Library-1.jpg);
+  background-color: var(--background-color-header);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
+    url(../images/Library-1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   @media screen and (min-width: 768px) {
-    background-image: url(../images/Library-2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
+      url(../images/Library-2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   @media screen and (min-width: 1024px) {
-    background-image: url(../images/Library-3.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
+      url(../images/Library-3.jpg);
     background-position: center;
     background-size: cover;
   }
@@ -26,7 +37,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px auto 0 auto;
   padding: 0;
 }
 .header__btns {
@@ -39,7 +49,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
-  color: $primari-white-color;
+  color: var(--primari-white-color);
   @media screen and (min-width: 768px) {
     width: 152px;
   }
@@ -54,9 +64,20 @@
 .header__btn--active {
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   border: transparent;
-  background-color: #ff6b01;
+  background-color: var(--accent-color);
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
+  }
 }
 .header__btn--noactive {
   background-color: transparent;
-  border: 1px solid $primari-white-color;
+  border: 1px solid var(--primari-white-color);
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+  }
 }
