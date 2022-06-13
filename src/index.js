@@ -6,3 +6,4 @@ import './js/pagination';
 import './js/renderTrendsOnMain.js';
 console.log('Hello World');
 import './js/modal.js';
+import './js/footerModal';

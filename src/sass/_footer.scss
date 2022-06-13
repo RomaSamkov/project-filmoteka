@@ -39,4 +39,40 @@ body {
 }
 .footer-link {
   color: #545454;
+  &:hover {
+    color: #ff6b08;
+  }
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.footer-backdrop {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.footer-modal {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  padding: 20px;
+  width: 50%;
+  height: 70%;
+  box-shadow: 5px 5px 4px 5px rgba(255, 107, 8, 0.3);
+}
+.footer-closeModalBtn {
+  float: right;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: black;
+  &:hover {
+    fill: #ff6b08;
+  }
 }
