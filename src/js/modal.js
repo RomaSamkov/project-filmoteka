@@ -5,14 +5,18 @@ import { refs } from './refs';
 
 refs.closeModalBtn.addEventListener('click', oncloseModal);
 refs.backdrop.addEventListener('click', onClickBackdrop);
+refs.filmsContainer.addEventListener('click', onOpenModal);
 
-window.addEventListener('keydown', onEscKeyPress); //повесить этот слушатель на открытие модалки чтобы он работал только при открытой
 
-function onOpenModal() {
+function onOpenModal(e) {
+    e.preventDefault();
+    if (e.target.nodeName !== 'IMG') {
+        return;
+    };
+    refs.backdrop.classList.remove('is-hidden');
+    window.addEventListener('keydown', onEscKeyPress);
 
-    
-    
-}
+};
 
 function oncloseModal() {
     window.removeEventListener('keydown', onEscKeyPress)
@@ -24,14 +28,14 @@ function onClickBackdrop(e) {
     if (e.currentTarget === e.target) {
         
          oncloseModal()
-    }
+    };
 };
 
 function onEscKeyPress(e) {
     if (e.code === 'Escape') {
     oncloseModal()
     
-    }
-}
+    };
+};
     
     
