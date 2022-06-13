@@ -1,11 +1,13 @@
 
 import { refs } from './refs';
+import {userFilms} from './api';
 
 
 
 refs.closeModalBtn.addEventListener('click', oncloseModal);
 refs.backdrop.addEventListener('click', onClickBackdrop);
 refs.filmsContainer.addEventListener('click', onOpenModal);
+
 
 
 function onOpenModal(e) {
@@ -15,6 +17,14 @@ function onOpenModal(e) {
     };
     refs.backdrop.classList.remove('is-hidden');
     window.addEventListener('keydown', onEscKeyPress);
+
+    userFilms.setId(e.target.dataset.id);
+    
+    userFilms.onSearchById().then(respons => {
+    console.log(respons)
+    
+        // функция рендера
+});
 
 };
 
