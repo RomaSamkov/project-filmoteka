@@ -1,30 +1,22 @@
 import ApiServise from './api';
-
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-
-const film__list = document.querySelector('.film__list');
-const pagination = document.querySelector('.pagination');
-
+import renderTrendsOnMain from './renderTrendsOnMain';
+import {refs} from './refs';
 
 const fetchData = new ApiServise();
-console.log(fetchData);
 
 function fetchAndRenderCards(){
-    film__list.innerHTML = '';
+    refs.filmsContainer.innerHTML = '';
 
     const data = fetchData.getTrendingFilm();
 
     data.then(({results, page, total_pages}) => {
-    
-        // const markup = createCard(results).join('');
-        // film__list.insertAdjacentHTML('beforeend', markup);
 
+        renderTrendsOnMain(results);
         createPagination(page, total_pages);
     })
-}
-fetchAndRenderCards()
+};
 
-function createPagination(page, totalPages){
+export default function createPagination(page, totalPages){
     const beforeTwoPage = page - 2;
     const beforePage = page - 1;
     const afterPage = page + 1;
@@ -63,8 +55,8 @@ function createPagination(page, totalPages){
         markup += '<li>&raquo;</li>';
     }
     
-    pagination.innerHTML = markup;
-    pagination.addEventListener('click', onBtnClick);
+    refs.pagination.innerHTML = markup;
+    refs.pagination.addEventListener('click', onBtnClick);
 };
 
 function onBtnClick(event){
@@ -83,27 +75,7 @@ function onBtnClick(event){
         case '...':
         break;
         default: 
-            fetchData.setPage(target);
+            fetchData.setPage(Number(target));
             fetchAndRenderCards();
     }
 };
-
-
-// function createCard(data) {
-//     return data.map(({backdrop_path, poster_path, genre_ids, release_date, title, id}) => {
-//         if (backdrop_path === null){
-//                 backdrop_path = poster_path;
-//                 if(poster_path === null) return;
-//         }
-//         return `<li class="card_item" id="${id}>
-//                     <div class="img_thumb">
-//                         <img src="${IMG_URL}${poster_path}" alt="${title}"/>
-//                     </div>
-//                     <p class="title">${title}</p>
-//                     <p class="genre">${genre_ids.map(genre => {
-//                         return `<span>${genre}</span>`
-//                     }).join('')}</p>
-//                     <p class="year">${release_date.slice(0, 4)}</p>
-//                 </li>`
-//     });
-// };

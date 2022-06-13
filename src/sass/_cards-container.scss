@@ -1,20 +1,20 @@
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
 .section{
     padding: 60px 0;
     width: 100%;
 }
-
+  
 .list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-
+  
 .film__image{
     border-radius: 5px;
     width: 208px;
@@ -28,16 +28,17 @@ img {
     height: 449px;
     }       
 }
-
+  
 .film__list{
     display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-       
-}
+    flex-wrap: wrap;
+    justify-content: center;
 
+    margin-bottom: 60px;
+}
+  
 .filmCard__wrap{
-   margin-right: 16px;
+    margin-right: 16px;
 }  
 
 .info{
@@ -75,7 +76,7 @@ color: #000000;
 
 .info__releaseDate {
     margin-left: 5px;
-     margin-top: 0;
+    margin-top: 0;
     margin-bottom: 0;
 }
 
@@ -94,6 +95,8 @@ color: #000000;
 
 .pagination {
     display: flex;
+    justify-content: center;
+
 }
 
 .pagination li {
@@ -102,8 +105,27 @@ color: #000000;
     align-items: center;
     width: 3rem;
     height: 3rem;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16/12);
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.pagination li:first-child,
+.pagination li:last-child {
+    background: #F7F7F7;
+    font-size: 18px;
+}
+
 
 .pagination li.isActive {
     background: orange;
+    color: #ffffff;
+}
+
+.pagination li:hover {
+    transform: scale(1.1);
+    box-shadow: inset 0 0 0.5rem, 0.5rem #fff;
 }
