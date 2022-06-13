@@ -10,7 +10,7 @@ const onSearch = ev => {
   refs.filmsContainer.innerHTML = '';
   userFilms.searchFilm = ev.target.elements.searchQuery.value.trim();
   if (!userFilms.searchFilm) {
-    userFilms.getTrendingFilm().then(response => renderTrendsOnMain(response));
+    userFilms.getTrendingFilm().then(response => renderTrendsOnMain(response.results));
     Notiflix.Notify.warning('Please, enter something for search!');
     return;
   }
@@ -21,7 +21,7 @@ const onSearch = ev => {
       if (validationSearchedArray(response)) {
         return;
       }
-      renderTrendsOnMain(response);
+      renderTrendsOnMain(response.results);
     })
     .catch(error => Notiflix.Notify.failure('Error!'));
 };
