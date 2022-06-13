@@ -7,4 +7,5 @@ export const refs = {
   modalContainer: document.querySelector('.modal-container'),
   modalBtnEl: document.querySelector('.modal-button'),
   modalListEl: document.querySelector('.modal-button-list')
+  pagination: document.querySelector('.pagination'),
 };
