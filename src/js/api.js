@@ -9,6 +9,7 @@ export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${A
 export default class ApiServise {
   constructor() {
     this.userSearch = '';
+    this.id = 0;
     this.page = 1;
   }
   getTrendingFilm() {
@@ -28,6 +29,14 @@ export default class ApiServise {
       return response.json();
     });
   }
+  onSearchById() {
+    return fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`).then(response => {
+      if (!response.ok) {
+        return;
+      }
+      return response.json;
+    });
+  }
   incrementPage() {
     this.page += 1;
   }
@@ -36,6 +45,9 @@ export default class ApiServise {
   }
   setPage(numberPage) {
     this.page = numberPage;
+  }
+  setId(newID) {
+    this.id = newID;
   }
   resetPage() {
     this.page = 0;
