@@ -6,7 +6,7 @@ import createPagination from './pagination';
 
 const userFilms = new ApiServise();
 
-userFilms.getTrendingFilm().then(({results, page, total_pages}) => {
+userFilms.getTrendingFilm().then(({ results, page, total_pages }) => {
   renderTrendsOnMain(results);
   createPagination(page, total_pages);
 });
@@ -14,7 +14,7 @@ userFilms.getTrendingFilm().then(({results, page, total_pages}) => {
 export default function renderTrendsOnMain(films) {
   const murkup = films
     .map(film => {
-      const { original_title, poster_path, genre_ids, release_date, id} = film;
+      const { original_title, poster_path, genre_ids, release_date, id } = film;
       if (poster_path === null) return;
       return `
       <li class="filmCard__wrap">
@@ -31,7 +31,8 @@ export default function renderTrendsOnMain(films) {
         </div>
       </li>
         `;
-    }).join('');
+    })
+    .join('');
 
   refs.filmsContainer.insertAdjacentHTML('beforeend', murkup);
 }
