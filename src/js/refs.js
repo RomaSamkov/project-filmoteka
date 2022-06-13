@@ -8,4 +8,7 @@ export const refs = {
   modalBtnEl: document.querySelector('.modal-button'),
   modalListEl: document.querySelector('.modal-button-list'),
   pagination: document.querySelector('.pagination'),
+  footerLink: document.querySelector('.footer-link'),
+  footerBackdrop: document.querySelector('.footer-backdrop'),
+  footerCloseModalBtn: document.querySelector('.footer-closeModalBtn'),
 };
