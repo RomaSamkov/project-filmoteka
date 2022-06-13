@@ -1,9 +1,6 @@
 
+import { refs } from './refs';
 
-const refs = {
-    closeModalBtn: document.querySelector(".modal-closeButton"),
-    backdrop: document.querySelector('.modal-backdrop'),
-};
 
 
 refs.closeModalBtn.addEventListener('click', oncloseModal);
@@ -12,6 +9,7 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 window.addEventListener('keydown', onEscKeyPress); //повесить этот слушатель на открытие модалки чтобы он работал только при открытой
 
 function onOpenModal() {
+
     
     
 }
