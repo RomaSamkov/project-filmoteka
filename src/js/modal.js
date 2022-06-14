@@ -73,6 +73,10 @@ function renderSelectedFilm(film) {
     </ul>
     <h3 class="modal-about">ABOUT</h3>
     <p class="modal-description">${overview}</p>
+    <div class="modal-button-list">
+        <button data-id=${id} class="modal-button">add to Watched</button>
+        <button data-id=${id} class="modal-button">add to queue</button>
+      </div>
   </div>
 </div>
         `;

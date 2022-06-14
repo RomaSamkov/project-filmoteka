@@ -47,7 +47,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     padding: 48px 20px 40px 20px;
-    // overflow-y: scroll;
+    overflow-y: scroll;
     transition: linear 0.7s;
 
     @media screen and (min-width: 767px) {
@@ -59,7 +59,7 @@
     }
 
     @media screen and (min-width: 1023px) {
-        width: 882px;
+        width: 814px;
         padding: 50px 30px 40px 30px;
     }
 }
@@ -107,4 +107,5 @@
 .modal-button:first-child {
     margin-right: 15px;
 }
+
 
