@@ -23,7 +23,8 @@ function onOpenModal(e) {
         console.log(respons)
         
     const markup = renderSelectedFilm(respons)
-    refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
+        refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
+       refs.scrollOnModal.classList.toggle('scroll-blocked');
 
     })
 
@@ -33,6 +34,7 @@ function oncloseModal() {
     window.removeEventListener('keydown', onEscKeyPress)
     refs.backdrop.classList.add('is-hidden')
     refs.modalContainer.innerHTML = "";
+    refs.scrollOnModal.classList.toggle('scroll-blocked');
 
 };
 
@@ -67,10 +69,14 @@ function renderSelectedFilm(film) {
       </li>
       <li class="modal-item">Popularity <span class="modal-value">${popularity}</span></li>
       <li class="modal-item">Original Title <span class="modal-value">${original_title}</span></li>
-      <li class="modal-item">Genre <span class="modal-value">${genres.name}</span></li>
+      <li class="modal-item">Genre <span class="modal-value">${genres.map(ganre => ' ' + ganre.name)}</span></li>
     </ul>
-    <h3 class="modal-about">ABUOT</h3>
+    <h3 class="modal-about">ABOUT</h3>
     <p class="modal-description">${overview}</p>
+    <div class="modal-button-list">
+        <button data-id=${id} class="modal-button">add to Watched</button>
+        <button data-id=${id} class="modal-button">add to queue</button>
+      </div>
   </div>
 </div>
         `;
