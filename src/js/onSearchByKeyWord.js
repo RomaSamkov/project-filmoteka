@@ -1,9 +1,7 @@
 import Notiflix from 'notiflix';
 import { refs } from './refs';
+import { userFilms } from './api';
 import renderTrendsOnMain from './renderTrendsOnMain';
-import ApiServise from './api';
-
-const userFilms = new ApiServise();
 
 const onSearch = ev => {
   ev.preventDefault();
@@ -29,7 +27,7 @@ const onSearch = ev => {
 const validationSearchedArray = response => {
   if (response.results.length === 0) {
     Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.',
+      'Sorry, there are no videos matching your search query. Please try again.',
     );
     refs.filmsContainer.insertAdjacentHTML('beforeend', renderNotResults());
     return;
@@ -37,7 +35,7 @@ const validationSearchedArray = response => {
 };
 
 function renderNotResults() {
-  return `<li><img src="../images/not-video.png" alt="No results" width= "70"/></li>`;
+  return `<li><img src="./images/Z60B.gif" alt="No results" width= "70" class="photo"/></li>`;
 }
 
 refs.formSearch.addEventListener('submit', onSearch);
