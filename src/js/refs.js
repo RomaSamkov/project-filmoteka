@@ -11,4 +11,5 @@ export const refs = {
   footerLink: document.querySelector('.footer-link'),
   footerBackdrop: document.querySelector('.footer-backdrop'),
   footerCloseModalBtn: document.querySelector('.footer-closeModalBtn'),
+  scrollOnModal: document.querySelector('body'),
 };

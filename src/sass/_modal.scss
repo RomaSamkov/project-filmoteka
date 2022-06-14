@@ -7,6 +7,10 @@
     transform: translate(-50%, -50%) scale(0.9);
 }
 
+.scroll-blocked {
+    overflow: hidden;
+}
+
 .modal-backdrop {
     z-index: 999;
     position: fixed;
