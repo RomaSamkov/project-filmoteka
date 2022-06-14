@@ -1,0 +1,35 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+
+}
+
+.pagination li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16/12);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination li.isActive {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+.pagination .arrow { 
+    background: #F7F7F7;
+    color: var(--accent-color);
+    font-size: 18px;
+
+}
+
+.pagination li:hover {
+    transform: scale(1.1);
+    box-shadow: inset 0 0 0.5rem, 0.5rem #fff;
+}
