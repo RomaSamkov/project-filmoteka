@@ -12,32 +12,31 @@ export default class ApiServise {
     this.id = 0;
     this.page = 1;
   }
-  getTrendingFilm() {
-    return fetch(`${API_URL}&page=${this.page}`).then(trendingFilm => {
-      if (!trendingFilm.ok) {
-        return;
-      }
+  async getTrendingFilm() {
+    try {
+      const trendingFilm = await fetch(`${API_URL}&page=${this.page}`);
       return trendingFilm.json();
-    });
+    } catch (error) {
+      return;
+    }
   }
-  onSearchFilm() {
+  async onSearchFilm() {
     this.incrementPage();
-    return fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`).then(response => {
-      if (!response.ok) {
-        return;
-      }
-      return response.json();
-    });
+    try {
+      const response = await fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
+      return await response.json();
+    } catch (error) {
+      return;
+    }
   }
-  onSearchById() {
-    return fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`).then(response => {
-      if (!response.ok) {
-        return;
-      }
-      return response.json();
-    });
+  async onSearchById() {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`);
+      return await response.json();
+    } catch (error) {
+      return;
+    }
   }
-
   incrementPage() {
     this.page += 1;
   }
