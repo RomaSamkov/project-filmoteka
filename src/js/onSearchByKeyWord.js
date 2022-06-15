@@ -2,30 +2,19 @@ import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { userFilms } from './api';
 import renderTrendsOnMain from './renderTrendsOnMain';
+import createPagination from './pagination';
 
 const onSearch = ev => {
   ev.preventDefault();
   refs.filmsContainer.innerHTML = '';
   userFilms.searchFilm = ev.target.elements.searchQuery.value.trim();
-  if (!userFilms.searchFilm) {
-    userFilms.getTrendingFilm().then(response => renderTrendsOnMain(response.results));
-    Notiflix.Notify.warning('Please, enter something for search!');
-    return;
-  }
-  userFilms.resetPage();
-  userFilms
-    .onSearchFilm()
-    .then(response => {
-      if (validationSearchedArray(response)) {
-        return;
-      }
-      renderTrendsOnMain(response.results);
-    })
-    .catch(error => Notiflix.Notify.failure('Error!'));
+  userFilms.page = 1;
+
+  renderCardsAndPagination();
 };
 
-const validationSearchedArray = response => {
-  if (response.results.length === 0) {
+const validationSearchedArray = results => {
+  if (results.length === 0) {
     Notiflix.Notify.failure(
       'Sorry, there are no videos matching your search query. Please try again.',
     );
@@ -39,3 +28,24 @@ function renderNotResults() {
 }
 
 refs.formSearch.addEventListener('submit', onSearch);
+
+
+function renderCardsAndPagination(){
+  refs.filmsContainer.innerHTML = '';
+  if (userFilms.userSearch){
+      userFilms.onSearchFilm()
+      .then(({results, page, total_pages}) => {
+        if (validationSearchedArray(results)) return;       
+          renderTrendsOnMain(results);
+          createPagination(page, total_pages);
+      }).catch(error => Notiflix.Notify.failure('Error!'));
+  }else{
+    userFilms.getTrendingFilm()
+    .then(({results, page, total_pages}) => {
+        renderTrendsOnMain(results);
+        createPagination(page, total_pages);
+    }).catch(error => Notiflix.Notify.failure(error.message))
+  }
+}
+
+export default renderCardsAndPagination;
