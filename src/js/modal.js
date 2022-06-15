@@ -22,9 +22,12 @@ function onOpenModal(e) {
         console.log(respons)
         
     const markup = renderSelectedFilm(respons)
-        refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
+       refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
        refs.scrollOnModal.classList.toggle('scroll-blocked');
 
+       const modalListEl = document.querySelector('.modal-button-list');
+       modalListEl.addEventListener('click', onClickModalBtn);
+       
     })
 
 };
@@ -84,7 +87,7 @@ function renderSelectedFilm(film) {
          </li>
          <li class="list-item">
           <span class="item-name">Original Title</span>
-          <span class="item-value">${original_title}</span>
+          <span class="item-value uppercase">${original_title}</span>
         </li>
         <li class="list-item">
          <span class="item-name">Genre</span>
@@ -106,13 +109,17 @@ function renderSelectedFilm(film) {
         `;
 }
 
-// console.log(refs.modalButtonList);
 
-// function onClickModalBtn (e) {
-//   if(e.target.nodeName !== 'BUTTON') {
-//     return
-//   }
-//   console.l
-//   e.target.classList.toggle('.carrent-btn')
 
-// }
+function onClickModalBtn (e) {
+  if(e.target.nodeName !== 'BUTTON') {
+    return
+  }
+
+
+ //  e.target.classList.toggle('carrent-btn')
+  // const carrentBtn = document.querySelector('.carrent-btn');
+  //   e.target.classList.toggle('carrent-btn')
+  
+
+}
