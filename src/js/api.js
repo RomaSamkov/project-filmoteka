@@ -21,7 +21,6 @@ export default class ApiServise {
     }
   }
   async onSearchFilm() {
-    this.incrementPage();
     try {
       const response = await fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
       return await response.json();
