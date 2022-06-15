@@ -12,4 +12,5 @@ export const refs = {
   footerBackdrop: document.querySelector('.footer-backdrop'),
   footerCloseModalBtn: document.querySelector('.footer-closeModalBtn'),
   scrollOnModal: document.querySelector('body'),
+  filmsContainerLib: document.querySelector('.film__list-lib'),
 };

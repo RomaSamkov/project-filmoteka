@@ -10,54 +10,54 @@ refs.filmsContainer.addEventListener('click', onOpenModal);
 
 
 function onOpenModal(e) {
-    e.preventDefault();
-    if (e.target.nodeName !== 'IMG') {
-        return;
-    };
-    refs.backdrop.classList.remove('is-hidden');
-    window.addEventListener('keydown', onEscKeyPress);
+  e.preventDefault();
+  if (e.target.nodeName !== 'IMG') {
+    return;
+  };
+  refs.backdrop.classList.remove('is-hidden');
+  window.addEventListener('keydown', onEscKeyPress);
 
-    userFilms.setId(e.target.dataset.id);
-    
-    userFilms.onSearchById().then(respons => {
-        console.log(respons)
-        
+  userFilms.setId(e.target.dataset.id);
+
+  userFilms.onSearchById().then(respons => {
+    console.log(respons)
+
     const markup = renderSelectedFilm(respons)
-        refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
-       refs.scrollOnModal.classList.toggle('scroll-blocked');
+    refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
+    refs.scrollOnModal.classList.toggle('scroll-blocked');
 
-    })
+  })
 
 };
 
 function oncloseModal() {
-    window.removeEventListener('keydown', onEscKeyPress)
-    refs.backdrop.classList.add('is-hidden')
-    refs.modalContainer.innerHTML = "";
-    refs.scrollOnModal.classList.toggle('scroll-blocked');
+  window.removeEventListener('keydown', onEscKeyPress)
+  refs.backdrop.classList.add('is-hidden')
+  refs.modalContainer.innerHTML = "";
+  refs.scrollOnModal.classList.toggle('scroll-blocked');
 
 };
 
 
 function onClickBackdrop(e) {
-    if (e.currentTarget === e.target) {
-        
-         oncloseModal()
-    };
+  if (e.currentTarget === e.target) {
+
+    oncloseModal()
+  };
 };
 
 function onEscKeyPress(e) {
-    if (e.code === 'Escape') {
+  if (e.code === 'Escape') {
     oncloseModal()
-    
-    };
+
+  };
 };
-    
+
 
 function renderSelectedFilm(film) {
 
-    const { original_title, poster_path, genres, vote_average,vote_count,popularity, overview, id } = film;
-   return  `
+  const { original_title, poster_path, genres, vote_average, vote_count, popularity, overview, id } = film;
+  return `
 <div class="modal-wrap">
   <img data-id=${id} width="50px" src="${IMG_URL}${poster_path}" alt="${original_title}" loading="lazy" class="modal-image
 "/>
