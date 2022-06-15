@@ -31,6 +31,9 @@ function onOpenModal(e) {
         function onWatchedBtnClick(){
           const key = "watched"
           const watchedMovies = addToWatchedStorage();
+          const moviesId = watchedMovies.map(item => item.id);
+
+          if(moviesId.includes(respons.id)) return;
           watchedMovies.push(respons);
           localStorage.setItem(key, JSON.stringify(watchedMovies));
         }
@@ -38,6 +41,9 @@ function onOpenModal(e) {
         function onQueueBtnClick(){
           const key = "queue"
           const queueMovies = addToQueueStorage();
+          const moviesId = queueMovies.map(item => item.id);
+
+          if(moviesId.includes(respons.id)) return
           queueMovies.push(respons);
           localStorage.setItem(key, JSON.stringify(queueMovies))
       }
