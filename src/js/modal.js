@@ -50,6 +50,21 @@ function onOpenModal(e) {
   })
 };
 
+function addToWatchedStorage(){
+  const data = JSON.parse(localStorage.getItem("watched"));
+  if(data){
+      return [...data];
+  }
+  return [];
+};
+function addToQueueStorage(){
+  const data = JSON.parse(localStorage.getItem("queue"));
+  if(data){
+      return [...data];
+  }
+  return [];
+};
+
 function oncloseModal() {
     window.removeEventListener('keydown', onEscKeyPress)
     refs.backdrop.classList.add('is-hidden')
@@ -57,7 +72,6 @@ function oncloseModal() {
     refs.scrollOnModal.classList.toggle('scroll-blocked');
 
 };
-
 
 function onClickBackdrop(e) {
     if (e.currentTarget === e.target) {
@@ -72,7 +86,6 @@ function onEscKeyPress(e) {
     
     };
 };
-    
 
 function renderSelectedFilm(film) {
 
