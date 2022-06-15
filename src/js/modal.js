@@ -23,6 +23,29 @@ function onOpenModal(e) {
         
     const markup = renderSelectedFilm(respons)
         refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
+        refs.scrollOnModal.classList.toggle('scroll-blocked');
+        refs.modalContainer.querySelector('.js-watched-btn').addEventListener('click', onWatchedBtnClick);
+        refs.modalContainer.querySelector('.js-queue-btn').addEventListener('click', onQueueBtnClick);
+
+        function onWatchedBtnClick(){
+          const key = "watched"
+          const watchedMovies = addToWatchedStorage();
+          const moviesId = watchedMovies.map(item => item.id);
+
+          if(moviesId.includes(respons.id)) return;
+          watchedMovies.push(respons);
+          localStorage.setItem(key, JSON.stringify(watchedMovies));
+        }
+
+        function onQueueBtnClick(){
+          const key = "queue"
+          const queueMovies = addToQueueStorage();
+          const moviesId = queueMovies.map(item => item.id);
+
+          if(moviesId.includes(respons.id)) return
+          queueMovies.push(respons);
+          localStorage.setItem(key, JSON.stringify(queueMovies))
+      }
        refs.scrollOnModal.classList.toggle('scroll-blocked');
 
     })
