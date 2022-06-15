@@ -1,4 +1,4 @@
-import ApiServise from './api';
+import Notiflix from 'notiflix';
 import renderTrendsOnMain from './renderTrendsOnMain';
 import {refs} from './refs';
 import { userFilms } from './api';
@@ -7,13 +7,17 @@ const fetchData = userFilms;
 
 function renderCardsAndPagination(){
     refs.filmsContainer.innerHTML = '';
-
-    const data = fetchData.getTrendingFilm();
-    data.then(({results, page, total_pages}) => {
-        
-        renderTrendsOnMain(results);
-        createPagination(page, total_pages);
-    })
+    
+    try {
+        const data = fetchData.getTrendingFilm();
+        data.then(({results, page, total_pages}) => {
+            renderTrendsOnMain(results);
+            createPagination(page, total_pages);
+        })
+    } catch (error) {
+        Notiflix.Notify.failure(error.message);
+    }
+    
 };
 
 export default function createPagination(page, totalPages){
