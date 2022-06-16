@@ -21,6 +21,9 @@ ul {
     pointer-events: none;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
 .is-hidden>.modal-up {
     transform: translate(-50%, -50%) scale(0.9);
 }
@@ -223,12 +226,16 @@ width: 240px;
 
 .modal-title {
   margin-bottom: 20px;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
+  font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 23px;
-  color: #000000;
+  line-height: 1,15;
+@media screen and (min-width: 1023px) {
+     font-size: 30px;
+line-height: 1,16;
+    }
 }
 .list >li:not(:last-child) {
     margin-bottom: 8px;
@@ -250,6 +257,16 @@ width: 240px;
 
 .title-about {
     margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color:rgb(0, 0, 0);
+    }
+
+.modal-description {
+        font-size: 12px;
+        line-height: 1.66;
 }
 .carrent-btn {
     background-color: var(--accent-color);
