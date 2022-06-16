@@ -115,11 +115,11 @@ function onClickModalBtn (e) {
   if(e.target.nodeName !== 'BUTTON') {
     return
   }
-
-
- //  e.target.classList.toggle('carrent-btn')
-  // const carrentBtn = document.querySelector('.carrent-btn');
-  //   e.target.classList.toggle('carrent-btn')
+  const carrentBtn = document.querySelector('.carrent-btn');
+   if(carrentBtn) {
+    e.target.classList.remove('carrent-btn')
+   }
+  e.target.classList.toggle('carrent-btn')
   
 
 }
