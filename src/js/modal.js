@@ -16,12 +16,13 @@ function onOpenModal(e) {
   refs.scrollOnModal.classList.toggle('scroll-blocked');
 
   userFilms.setId(e.target.dataset.id);
-    
+
   const contentTrailer = document.getElementById('overlay-id');
   const closeBtnTrailer = document.querySelector('.closebtn');
   const clickTrailerOverlay = document.querySelector('.overlay');
 
   function onOpenTrailer() {
+    window.addEventListener('keydown', onEscKeyPressTrailer);
     userFilms.onSearchTrailerById().then(videoData => {
       let key = '';
       videoData.results.map(video => {
@@ -53,6 +54,14 @@ function onOpenModal(e) {
 
   function onCloseTrailer() {
     document.getElementById('myNav').style.width = '0%';
+    contentTrailer.innerHTML = '';
+  }
+
+  function onEscKeyPressTrailer(e) {
+    if (e.code === 'Escape') {
+      document.getElementById('myNav').style.width = '0%';
+      contentTrailer.innerHTML = '';
+    }
   }
 
   userFilms.onSearchById().then(respons => {
@@ -64,15 +73,14 @@ function onOpenModal(e) {
     });
     // const BtnQueue = document.querySelector('.js-queue-btn');
     // const BtnWatched = document.querySelector('.js-watched-btn');
-    
+
     // // BtnQueue.addEventListener('click', changTaxBtnQueue)
     // // function changTaxBtnQueue(e) {
     // //   if (BtnWatched.classList.contains('js-queue-btn')) {
-    // //     
+    // //
     // //   }
-          
+
     // // }
-    
 
     refs.modalContainer
       .querySelector('.js-watched-btn')
