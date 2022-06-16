@@ -5,28 +5,28 @@ refs.footerLink.addEventListener('click', onOpenFooterModal);
 refs.footerBackdrop.addEventListener('click', onClickFooterBackdrop);
 
 
-function onOpenFooterModal(e) {
-    e.preventDefault();
+function onOpenFooterModal(event) {
+    event.preventDefault();
     refs.scrollOnModal.classList.add('scroll-hidden')
     refs.footerBackdrop.classList.remove('is-hidden');
     window.addEventListener('keydown', onEscPress);
 }
 
-function onCloseFooterModal(e) {
+function onCloseFooterModal(event) {
     refs.footerBackdrop.classList.add('is-hidden');
     window.removeEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.remove('scroll-hidden')
 }
 
-function onClickFooterBackdrop(e) {
-    if (e.target === e.currentTarget) {
+function onClickFooterBackdrop(event) {
+    if (event.target === eevent.currentTarget) {
 
         onCloseFooterModal()
     };
 };
 
-function onEscPress(e) {
-    if (e.code === 'Escape') {
+function onEscPress(event) {
+    if (event.code === 'Escape') {
         onCloseFooterModal()
     }
 }

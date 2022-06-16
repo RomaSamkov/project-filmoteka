@@ -19,7 +19,7 @@ body {
 .footer-paragraph {
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--footer-text-color);
+  color: #545454;
   @include font(14px, 400, 1.14, 0.05em);
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -38,7 +38,7 @@ body {
   margin-right: 10px;
 }
 .footer-link {
-  color: var(--footer-text-color);
+  color: #545454;
   &:hover {
     color: var(--accent-color);
   }
