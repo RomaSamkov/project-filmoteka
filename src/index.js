@@ -8,3 +8,4 @@ console.log('Hello World');
 import './js/modal.js';
 import './js/footerModal';
 import './js/switcher';
+import './js/trailer';

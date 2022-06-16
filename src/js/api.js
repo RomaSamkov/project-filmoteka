@@ -6,7 +6,7 @@ export const API_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
-class ApiServise {
+export default class ApiServise {
   constructor() {
     this.userSearch = '';
     this.id = 0;
@@ -36,6 +36,16 @@ class ApiServise {
       return;
     }
   }
+
+  async onSearchTrailerById() {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${this.id}/videos?api_key=${API_KEY}`);
+      return await response.json();
+    } catch (error) {
+      return;
+    }
+  }
+
   incrementPage() {
     this.page += 1;
   }
