@@ -15,7 +15,7 @@ function onOpenModal(e) {
         return;
     };
     refs.backdrop.classList.remove('is-hidden');
-    window.addEventListener('keydown', onEscKeyPress);
+    
 
     userFilms.setId(e.target.dataset.id);
     
