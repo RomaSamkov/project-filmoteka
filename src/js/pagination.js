@@ -1,20 +1,6 @@
-import ApiServise from './api';
-import renderTrendsOnMain from './renderTrendsOnMain';
 import {refs} from './refs';
 import { userFilms } from './api';
-
-const fetchData = userFilms;
-
-function renderCardsAndPagination(){
-    refs.filmsContainer.innerHTML = '';
-
-    const data = fetchData.getTrendingFilm();
-    data.then(({results, page, total_pages}) => {
-        
-        renderTrendsOnMain(results);
-        createPagination(page, total_pages);
-    })
-};
+import renderCardsAndPagination from './onSearchByKeyWord';
 
 export default function createPagination(page, totalPages){
     const beforeTwoPage = page - 2;
@@ -65,17 +51,17 @@ function onBtnClick(event){
     
     switch (target){
         case '»': 
-            fetchData.incrementPage();
+            userFilms.incrementPage();
             renderCardsAndPagination();
         break;
         case '«': 
-            fetchData.decrementPage();
+            userFilms.decrementPage();
             renderCardsAndPagination();
         break;
         case '...':
         break;
         default: 
-            fetchData.setPage(Number(target));
+            userFilms.setPage(Number(target));
             renderCardsAndPagination();
     }
 };

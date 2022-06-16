@@ -21,7 +21,6 @@ export default class ApiServise {
     }
   }
   async onSearchFilm() {
-    this.incrementPage();
     try {
       const response = await fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
       return await response.json();
@@ -37,6 +36,16 @@ export default class ApiServise {
       return;
     }
   }
+
+  async onSearchTrailerById() {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${this.id}/videos?api_key=${API_KEY}`);
+      return await response.json();
+    } catch (error) {
+      return;
+    }
+  }
+
   incrementPage() {
     this.page += 1;
   }
@@ -50,7 +59,7 @@ export default class ApiServise {
     this.id = newID;
   }
   resetPage() {
-    this.page = 0;
+    this.page = 1;
   }
   get searchFilm() {
     return this.userSearch;

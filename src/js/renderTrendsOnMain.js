@@ -3,10 +3,16 @@ import { IMG_URL } from './api';
 import { API_KEY } from './api';
 import createPagination from './pagination';
 import {userFilms} from './api';
+import toggleDragonSpiner from './spiner';
 
+toggleDragonSpiner();
 userFilms.getTrendingFilm().then(({ results, page, total_pages }) => {
-  renderTrendsOnMain(results);
-  createPagination(page, total_pages);
+  setTimeout(()=>{
+    renderTrendsOnMain(results);
+    createPagination(page, total_pages);
+    toggleDragonSpiner();
+  }, 1000)
+  
 });
 
 export default function renderTrendsOnMain(films) {
