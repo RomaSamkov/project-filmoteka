@@ -7,6 +7,7 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 refs.filmsContainer.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
+
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
