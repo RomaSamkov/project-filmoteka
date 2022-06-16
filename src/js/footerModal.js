@@ -30,3 +30,4 @@ function onEscPress(event) {
         onCloseFooterModal()
     }
 }
+// console.log()
