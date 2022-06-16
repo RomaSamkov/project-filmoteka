@@ -1,0 +1,16 @@
+.header--shadow {
+  box-shadow: 0px 5px 5px -5px var(--accent-color);
+}
+.section--bgd {
+  background: linear-gradient(
+    90deg,
+    rgba(17, 17, 17, 1) 0%,
+    rgba(77, 68, 64, 1) 50%,
+    rgba(77, 68, 64, 1) 51%,
+    rgba(17, 17, 17, 1) 100%
+  );
+}
+
+.footer--shadow {
+  box-shadow: 0 0 15px 8px var(--accent-color);
+}

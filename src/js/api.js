@@ -6,7 +6,7 @@ export const API_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
-export default class ApiServise {
+class ApiServise {
   constructor() {
     this.userSearch = '';
     this.id = 0;
@@ -49,7 +49,7 @@ export default class ApiServise {
     this.id = newID;
   }
   resetPage() {
-    this.page = 0;
+    this.page = 1;
   }
   get searchFilm() {
     return this.userSearch;

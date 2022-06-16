@@ -8,10 +8,33 @@ const onSearch = ev => {
   ev.preventDefault();
   refs.filmsContainer.innerHTML = '';
   userFilms.searchFilm = ev.target.elements.searchQuery.value.trim();
-  userFilms.page = 1;
-
+  userFilms.resetPage();
   renderCardsAndPagination();
 };
+
+refs.formSearch.addEventListener('submit', onSearch);
+
+export default function renderCardsAndPagination() {
+  refs.filmsContainer.innerHTML = '';
+  if (userFilms.userSearch) {
+    userFilms
+      .onSearchFilm()
+      .then(({ results, page, total_pages }) => {
+        if (validationSearchedArray(results)) return;
+        renderTrendsOnMain(results);
+        createPagination(page, total_pages);
+      })
+      .catch(error => Notiflix.Notify.failure('Error!'));
+  } else {
+    userFilms
+      .getTrendingFilm()
+      .then(({ results, page, total_pages }) => {
+        renderTrendsOnMain(results);
+        createPagination(page, total_pages);
+      })
+      .catch(error => Notiflix.Notify.failure('Error!'));
+  }
+}
 
 const validationSearchedArray = results => {
   if (results.length === 0) {
@@ -26,26 +49,3 @@ const validationSearchedArray = results => {
 function renderNotResults() {
   return `<li><img src="./images/Z60B.gif" alt="No results" width= "70" class="photo"/></li>`;
 }
-
-refs.formSearch.addEventListener('submit', onSearch);
-
-
-function renderCardsAndPagination(){
-  refs.filmsContainer.innerHTML = '';
-  if (userFilms.userSearch){
-      userFilms.onSearchFilm()
-      .then(({results, page, total_pages}) => {
-        if (validationSearchedArray(results)) return;       
-          renderTrendsOnMain(results);
-          createPagination(page, total_pages);
-      }).catch(error => Notiflix.Notify.failure('Error!'));
-  }else{
-    userFilms.getTrendingFilm()
-    .then(({results, page, total_pages}) => {
-        renderTrendsOnMain(results);
-        createPagination(page, total_pages);
-    }).catch(error => Notiflix.Notify.failure(error.message))
-  }
-}
-
-export default renderCardsAndPagination;
