@@ -7,22 +7,21 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 refs.filmsContainer.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
-
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
   }
   refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscKeyPress);
+  refs.scrollOnModal.classList.toggle('scroll-blocked');
 
   userFilms.setId(e.target.dataset.id);
-
+    
   const contentTrailer = document.getElementById('overlay-id');
   const closeBtnTrailer = document.querySelector('.closebtn');
   const clickTrailerOverlay = document.querySelector('.overlay');
 
   function onOpenTrailer() {
-    window.addEventListener('keydown', onEscKeyPressTrailer);
     userFilms.onSearchTrailerById().then(videoData => {
       let key = '';
       videoData.results.map(video => {
@@ -54,25 +53,26 @@ function onOpenModal(e) {
 
   function onCloseTrailer() {
     document.getElementById('myNav').style.width = '0%';
-    contentTrailer.innerHTML = '';
-  }
-
-  function onEscKeyPressTrailer(e) {
-    if (e.code === 'Escape') {
-      document.getElementById('myNav').style.width = '0%';
-      contentTrailer.innerHTML = '';
-    }
   }
 
   userFilms.onSearchById().then(respons => {
     const markup = renderSelectedFilm(respons);
     refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
-    refs.scrollOnModal.classList.toggle('scroll-blocked');
-
     const trailer = document.querySelector('.trailer');
     trailer.addEventListener('click', () => {
       onOpenTrailer();
     });
+    // const BtnQueue = document.querySelector('.js-queue-btn');
+    // const BtnWatched = document.querySelector('.js-watched-btn');
+    
+    // // BtnQueue.addEventListener('click', changTaxBtnQueue)
+    // // function changTaxBtnQueue(e) {
+    // //   if (BtnWatched.classList.contains('js-queue-btn')) {
+    // //     
+    // //   }
+          
+    // // }
+    
 
     refs.modalContainer
       .querySelector('.js-watched-btn')
@@ -98,7 +98,7 @@ function onOpenModal(e) {
       queueMovies.push(respons);
       localStorage.setItem(key, JSON.stringify(queueMovies));
     }
-    refs.scrollOnModal.classList.toggle('scroll-blocked');
+    // refs.scrollOnModal.classList.toggle('scroll-blocked');
   });
 }
 
@@ -150,6 +150,9 @@ function renderSelectedFilm(film) {
   return `
 <div class="modal-wrap">
   <div class="wrap-img">
+  <button class="trailer" id="${id}">
+      Trailer
+    </button>
     <img
       data-id="${id}"
       src="${IMG_URL}${poster_path}"
@@ -189,24 +192,21 @@ function renderSelectedFilm(film) {
       </div>
     </div>
     <div class="modal-button-list">
-      <button data-id="${id}" class="modal-button carrent-btn js-watched-btn">add to Watched</button>
+      <button data-id="${id}" class="modal-button js-watched-btn">add to Watched</button>
       <button data-id="${id}" class="modal-button js-queue-btn">add to queue</button>
     </div>
-    <button class="trailer" id="${id}">
-      Trailer
-    </button>
-  </div>
+      </div>
 </div>
         `;
 }
 
-function onClickModalBtn(e) {
-  if (e.target.nodeName !== 'BUTTON') {
-    return;
-  }
-  const carrentBtn = document.querySelector('.carrent-btn');
-  if (carrentBtn) {
-    e.target.classList.remove('carrent-btn');
-  }
-  e.target.classList.toggle('carrent-btn');
-}
+// function onClickModalBtn(e) {
+//   if (e.target.nodeName !== 'BUTTON') {
+//     return;
+//   }
+//   const carrentBtn = document.querySelector('.carrent-btn');
+//   if (carrentBtn) {
+//     e.target.classList.remove('carrent-btn');
+//   }
+//   e.target.classList.toggle('carrent-btn');
+// }
