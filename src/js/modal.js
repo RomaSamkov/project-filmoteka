@@ -9,6 +9,7 @@ refs.filmsContainer.addEventListener('click', onOpenModal);
 
 
 function onOpenModal(e) {
+  
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
       return;
@@ -118,7 +119,7 @@ function renderSelectedFilm(film) {
          </li>
          <li class="list-item">
           <span class="item-name">Original Title</span>
-          <span class="item-value">${original_title}</span>
+          <span class="item-value uppercase">${original_title}</span>
         </li>
         <li class="list-item">
          <span class="item-name">Genre</span>
@@ -140,13 +141,17 @@ function renderSelectedFilm(film) {
         `;
 }
 
-// console.log(refs.modalButtonList);
 
-// function onClickModalBtn (e) {
-//   if(e.target.nodeName !== 'BUTTON') {
-//     return
-//   }
-//   console.l
-//   e.target.classList.toggle('.carrent-btn')
 
-// }
+function onClickModalBtn (e) {
+  if(e.target.nodeName !== 'BUTTON') {
+    return
+  }
+  const carrentBtn = document.querySelector('.carrent-btn');
+   if(carrentBtn) {
+    e.target.classList.remove('carrent-btn')
+   }
+  e.target.classList.toggle('carrent-btn')
+  
+
+}
