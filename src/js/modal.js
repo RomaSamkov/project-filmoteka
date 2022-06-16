@@ -21,6 +21,7 @@ function onOpenModal(e) {
   const clickTrailerOverlay = document.querySelector('.overlay');
 
   function onOpenTrailer() {
+    window.addEventListener('keydown', onEscKeyPressTrailer);
     userFilms.onSearchTrailerById().then(videoData => {
       let key = '';
       videoData.results.map(video => {
