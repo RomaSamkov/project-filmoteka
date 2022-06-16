@@ -1,20 +1,6 @@
-import ApiServise from './api';
-import renderTrendsOnMain from './renderTrendsOnMain';
 import {refs} from './refs';
-
-const fetchData = new ApiServise();
-
-function fetchAndRenderCards(){
-    refs.filmsContainer.innerHTML = '';
-
-    const data = fetchData.getTrendingFilm();
-
-    data.then(({results, page, total_pages}) => {
-
-        renderTrendsOnMain(results);
-        createPagination(page, total_pages);
-    })
-};
+import { userFilms } from './api';
+import renderCardsAndPagination from './onSearchByKeyWord';
 
 export default function createPagination(page, totalPages){
     const beforeTwoPage = page - 2;
@@ -24,7 +10,7 @@ export default function createPagination(page, totalPages){
     let markup = '';
 
     if(page > 1){
-        markup += '<li>&laquo;</li>';
+        markup += '<li class="arrow">&laquo;</li>';
     }
     if(page > 1){
         markup += '<li>1</li>';
@@ -52,7 +38,7 @@ export default function createPagination(page, totalPages){
     }    
     if(page < totalPages){
         markup += `<li>${totalPages}</li>`;
-        markup += '<li>&raquo;</li>';
+        markup += '<li class="arrow">&raquo;</li>';
     }
     
     refs.pagination.innerHTML = markup;
@@ -65,17 +51,17 @@ function onBtnClick(event){
     
     switch (target){
         case '»': 
-            fetchData.incrementPage();
-            fetchAndRenderCards();
+            userFilms.incrementPage();
+            renderCardsAndPagination();
         break;
         case '«': 
-            fetchData.decrementPage();
-            fetchAndRenderCards();
+            userFilms.decrementPage();
+            renderCardsAndPagination();
         break;
         case '...':
         break;
         default: 
-            fetchData.setPage(Number(target));
-            fetchAndRenderCards();
+            userFilms.setPage(Number(target));
+            renderCardsAndPagination();
     }
 };

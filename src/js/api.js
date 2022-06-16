@@ -6,37 +6,35 @@ export const API_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
- 
 export default class ApiServise {
   constructor() {
     this.userSearch = '';
     this.id = 0;
     this.page = 1;
   }
-  getTrendingFilm() {
-    return fetch(`${API_URL}&page=${this.page}`).then(trendingFilm => {
-      if (!trendingFilm.ok) {
-        return;
-      }
+  async getTrendingFilm() {
+    try {
+      const trendingFilm = await fetch(`${API_URL}&page=${this.page}`);
       return trendingFilm.json();
-    });
+    } catch (error) {
+      return;
+    }
   }
-  onSearchFilm() {
-    this.incrementPage();
-    return fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`).then(response => {
-      if (!response.ok) {
-        return;
-      }
-      return response.json();
-    });
+  async onSearchFilm() {
+    try {
+      const response = await fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
+      return await response.json();
+    } catch (error) {
+      return;
+    }
   }
-  onSearchById() {
-    return fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`).then(response => {
-      if (!response.ok) {
-        return;
-      }
-      return response.json();
-    });
+  async onSearchById() {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`);
+      return await response.json();
+    } catch (error) {
+      return;
+    }
   }
   incrementPage() {
     this.page += 1;
@@ -61,5 +59,5 @@ export default class ApiServise {
   }
 }
 
-const userFilms = new ApiServise
-export {userFilms}
+const userFilms = new ApiServise();
+export { userFilms };
