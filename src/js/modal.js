@@ -52,6 +52,14 @@ function onOpenModal(e) {
 
   function onCloseTrailer() {
     document.getElementById('myNav').style.width = '0%';
+    contentTrailer.innerHTML = '';
+  }
+
+  function onEscKeyPressTrailer(e) {
+    if (e.code === 'Escape') {
+      document.getElementById('myNav').style.width = '0%';
+      contentTrailer.innerHTML = '';
+    }
   }
 
   userFilms.onSearchById().then(respons => {
