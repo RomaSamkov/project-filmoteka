@@ -2,30 +2,42 @@ import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { userFilms } from './api';
 import renderTrendsOnMain from './renderTrendsOnMain';
+import createPagination from './pagination';
 
 const onSearch = ev => {
   ev.preventDefault();
   refs.filmsContainer.innerHTML = '';
   userFilms.searchFilm = ev.target.elements.searchQuery.value.trim();
-  if (!userFilms.searchFilm) {
-    userFilms.getTrendingFilm().then(response => renderTrendsOnMain(response.results));
-    Notiflix.Notify.warning('Please, enter something for search!');
-    return;
-  }
   userFilms.resetPage();
-  userFilms
-    .onSearchFilm()
-    .then(response => {
-      if (validationSearchedArray(response)) {
-        return;
-      }
-      renderTrendsOnMain(response.results);
-    })
-    .catch(error => Notiflix.Notify.failure('Error!'));
+  renderCardsAndPagination();
 };
 
-const validationSearchedArray = response => {
-  if (response.results.length === 0) {
+refs.formSearch.addEventListener('submit', onSearch);
+
+export default function renderCardsAndPagination() {
+  refs.filmsContainer.innerHTML = '';
+  if (userFilms.userSearch) {
+    userFilms
+      .onSearchFilm()
+      .then(({ results, page, total_pages }) => {
+        if (validationSearchedArray(results)) return;
+        renderTrendsOnMain(results);
+        createPagination(page, total_pages);
+      })
+      .catch(error => Notiflix.Notify.failure('Error!'));
+  } else {
+    userFilms
+      .getTrendingFilm()
+      .then(({ results, page, total_pages }) => {
+        renderTrendsOnMain(results);
+        createPagination(page, total_pages);
+      })
+      .catch(error => Notiflix.Notify.failure('Error!'));
+  }
+}
+
+const validationSearchedArray = results => {
+  if (results.length === 0) {
     Notiflix.Notify.failure(
       'Sorry, there are no videos matching your search query. Please try again.',
     );
@@ -37,5 +49,3 @@ const validationSearchedArray = response => {
 function renderNotResults() {
   return `<li><img src="./images/Z60B.gif" alt="No results" width= "70" class="photo"/></li>`;
 }
-
-refs.formSearch.addEventListener('submit', onSearch);

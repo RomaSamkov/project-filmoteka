@@ -7,3 +7,5 @@ import './js/renderTrendsOnMain.js';
 console.log('Hello World');
 import './js/modal.js';
 import './js/footerModal';
+import './js/myLibrary';
+import './js/switcher';
