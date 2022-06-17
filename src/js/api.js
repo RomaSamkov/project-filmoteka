@@ -1,5 +1,4 @@
-const axios = require('axios').default;
-
+import axios from 'axios';
 export const API_KEY = 'f534638cb3304b9759e126ecf8f1bc28';
 export const BASE_URL = 'https://api.themoviedb.org/3';
 export const API_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
@@ -12,30 +11,37 @@ export default class ApiServise {
     this.id = 0;
     this.page = 1;
   }
-  getTrendingFilm() {
-    return fetch(`${API_URL}&page=${this.page}`).then(trendingFilm => {
-      if (!trendingFilm.ok) {
-        return;
-      }
-      return trendingFilm.json();
-    });
+  async getTrendingFilm() {
+    try {
+      const trendingFilm = await axios.get(`${API_URL}&page=${this.page}`);
+      return trendingFilm.data;
+    } catch (error) {
+      return;
+    }
   }
-  onSearchFilm() {
-    this.incrementPage();
-    return fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`).then(response => {
-      if (!response.ok) {
-        return;
-      }
-      return response.json();
-    });
+  async onSearchFilm() {
+    try {
+      const response = await axios.get(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
+      return response.data;
+    } catch (error) {
+      return;
+    }
   }
-  onSearchById() {
-    return fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`).then(response => {
-      if (!response.ok) {
-        return;
-      }
-      return response.json;
-    });
+  async onSearchById() {
+    try {
+      const response = await axios.get(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`);
+      return response.data;
+    } catch (error) {
+      return;
+    }
+  }
+  async onSearchTrailerById() {
+    try {
+      const response = await axios.get(`${BASE_URL}/movie/${this.id}/videos?api_key=${API_KEY}`);
+      return response.data;
+    } catch (error) {
+      return;
+    }
   }
 
   onGetGenresIds() {
@@ -58,11 +64,11 @@ export default class ApiServise {
   setPage(numberPage) {
     this.page = numberPage;
   }
+  resetPage() {
+    this.page = 1;
+  }
   setId(newID) {
     this.id = newID;
-  }
-  resetPage() {
-    this.page = 0;
   }
   get searchFilm() {
     return this.userSearch;
@@ -71,3 +77,6 @@ export default class ApiServise {
     this.userSearch = newSearch;
   }
 }
+
+const userFilms = new ApiServise();
+export { userFilms };

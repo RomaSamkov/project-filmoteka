@@ -1,14 +1,18 @@
 import { refs } from './refs';
-import ApiServise from './api';
 import { IMG_URL } from './api';
 import createPagination from './pagination';
 import genres from '../js/genres.json';
+import {userFilms} from './api';
+import toggleDragonSpiner from './spiner';
 
-const userFilms = new ApiServise();
-
+toggleDragonSpiner();
 userFilms.getTrendingFilm().then(({ results, page, total_pages }) => {
-  renderTrendsOnMain(results);
-  createPagination(page, total_pages);
+  setTimeout(()=>{
+    renderTrendsOnMain(results);
+    createPagination(page, total_pages);
+    toggleDragonSpiner();
+  }, 1000)
+  
 });
 
 export default function renderTrendsOnMain(films) {
@@ -35,6 +39,9 @@ export default function renderTrendsOnMain(films) {
         <li class="filmCard__wrap">
         <img data-id="${id}" src="${IMG_URL}${poster_path}" alt="${original_title}" loading="lazy" class="film__image"/>
         <div class="info">
+      <li class="filmCard__wrap">
+          <img data-id=${id} src="${IMG_URL}${poster_path}" alt="${original_title}" loading="lazy" class="film__image"/>
+          <div class="info">
         <h2 class="info__title">${original_title}</h2>
         <div class="info__wrap">
           <p class="info__genre"> ${shortList} | ${release_year} </p>
