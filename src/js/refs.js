@@ -1,4 +1,6 @@
 export const refs = {
+  headerContainer: document.querySelector('.js-header-container'),
+  myLibraryBtn: document.querySelector('.js-library-btn'),
   formSearch: document.querySelector('.header__form'),
   galleryContainer: document.querySelector('.gallery'),
   filmsContainer: document.querySelector('.film__list'),

@@ -1,5 +1,5 @@
-<header class="my-library">
-  <div class="library__container container">
+function myLibraryHeaderTemplate(){
+    return `
     <div class="header__navigation--library">
       <a class="header__logo link" href="./index.html"
         ><svg width="24" height="24">
@@ -12,7 +12,7 @@
           <a class="header__link link" href="./index.html">Home</a>
         </li>
         <li class="header__nav">
-          <a class="header__link link header-nav--pege" href="">My Library</a>
+          <a class="header__link link header-nav--pege" href="#">My Library</a>
         </li>
       </ul>
     </div>
@@ -36,5 +36,7 @@
       </label>
       <button class="switcher-theme-name">Dark</button>
     </div>
-  </div>
-</header>
+    `
+}
+
+export default myLibraryHeaderTemplate;
