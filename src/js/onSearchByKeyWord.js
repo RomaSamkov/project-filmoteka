@@ -22,13 +22,12 @@ export default function renderCardsAndPagination() {
     userFilms
       .onSearchFilm()
       .then(({ results, page, total_pages }) => {
-        setTimeout(()=>{
+        setTimeout(() => {
           if (validationSearchedArray(results)) return;
           renderTrendsOnMain(results);
           createPagination(page, total_pages);
           toggleDragonSpiner();
-        },1000)
-        
+        }, 1000);
       })
       .catch(error => Notiflix.Notify.failure('Error!'));
   } else {
@@ -36,11 +35,11 @@ export default function renderCardsAndPagination() {
     userFilms
       .getTrendingFilm()
       .then(({ results, page, total_pages }) => {
-        setTimeout(()=>{
+        setTimeout(() => {
           renderTrendsOnMain(results);
           createPagination(page, total_pages);
           toggleDragonSpiner();
-        },1000);
+        }, 1000);
       })
       .catch(error => Notiflix.Notify.failure('Error!'));
   }
@@ -55,7 +54,6 @@ const validationSearchedArray = results => {
     return;
   }
 };
-
 function renderNotResults() {
-  return `<li><img src="./images/Z60B.gif" alt="No results" width= "70" class="photo"/></li>`;
+  return `<li><img href='https://i.gifer.com/Z60B.gif' alt="No results" width= "70" class="photo"/></li>`;
 }
