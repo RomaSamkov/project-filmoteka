@@ -1,5 +1,4 @@
-const axios = require('axios').default;
-
+import axios from 'axios';
 export const API_KEY = 'f534638cb3304b9759e126ecf8f1bc28';
 export const BASE_URL = 'https://api.themoviedb.org/3';
 export const API_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
@@ -14,38 +13,36 @@ export default class ApiServise {
   }
   async getTrendingFilm() {
     try {
-      const trendingFilm = await fetch(`${API_URL}&page=${this.page}`);
-      return trendingFilm.json();
+      const trendingFilm = await axios.get(`${API_URL}&page=${this.page}`);
+      return trendingFilm.data;
     } catch (error) {
       return;
     }
   }
   async onSearchFilm() {
     try {
-      const response = await fetch(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
-      return await response.json();
+      const response = await axios.get(`${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`);
+      return response.data;
     } catch (error) {
       return;
     }
   }
   async onSearchById() {
     try {
-      const response = await fetch(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`);
-      return await response.json();
+      const response = await axios.get(`${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`);
+      return response.data;
     } catch (error) {
       return;
     }
   }
-
   async onSearchTrailerById() {
     try {
-      const response = await fetch(`${BASE_URL}/movie/${this.id}/videos?api_key=${API_KEY}`);
-      return await response.json();
+      const response = await axios.get(`${BASE_URL}/movie/${this.id}/videos?api_key=${API_KEY}`);
+      return response.data;
     } catch (error) {
       return;
     }
   }
-
   incrementPage() {
     this.page += 1;
   }
@@ -55,11 +52,11 @@ export default class ApiServise {
   setPage(numberPage) {
     this.page = numberPage;
   }
-  setId(newID) {
-    this.id = newID;
-  }
   resetPage() {
     this.page = 1;
+  }
+  setId(newID) {
+    this.id = newID;
   }
   get searchFilm() {
     return this.userSearch;
