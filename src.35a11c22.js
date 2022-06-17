@@ -112,4 +112,4 @@ const e={accent:"#ff6b08",main:"#000000",textColor:"#ffffff",footerlBgd:"rgba(0,
 },{"../refs":"VyiV","./myLibraryHeaderTemplate":"DVNE","../api":"cZF8"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/refs.js"),require("./js/api.js"),require("./js/onSearchByKeyWord.js"),require("./js/pagination"),require("./js/renderTrendsOnMain.js"),require("./js/modal.js"),require("./js/footerModal"),require("./js/switcher"),require("./js/trailer"),require("./js/my-library/myLibraryBtn");
 },{"./sass/main.scss":"clu1","./js/refs.js":"VyiV","./js/api.js":"cZF8","./js/onSearchByKeyWord.js":"kQBM","./js/pagination":"o8lo","./js/renderTrendsOnMain.js":"oWkO","./js/modal.js":"RSqK","./js/footerModal":"EagV","./js/switcher":"hql5","./js/trailer":"J7DG","./js/my-library/myLibraryBtn":"KTZu"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-filmoteka/src.b52278ce.js.map
+//# sourceMappingURL=/project-filmoteka/src.35a11c22.js.map
