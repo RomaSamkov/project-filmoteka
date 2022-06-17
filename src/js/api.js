@@ -37,6 +37,18 @@ export default class ApiServise {
       return response.json;
     });
   }
+
+  onGetGenresIds() {
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`).then(
+      genresId => {
+        if (!genresId.ok) {
+          return;
+        }
+        return genresId.json();
+      },
+    );
+  }
+
   incrementPage() {
     this.page += 1;
   }
