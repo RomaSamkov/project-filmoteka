@@ -1,3 +1,13 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -11,20 +21,23 @@ img {
 }
 
 .list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
-.film__image {
-  border-radius: 5px;
-  width: 208px;
-  height: 402px;
-  @media screen and (min-width: 768px) {
+  
+.film__image{
+    border-radius: 5px;
+    width: 280px;
+    height: 402px;
+    margin-bottom: 10px;  
+    @media screen and (min-width: 768px) {
     width: 336px;
     height: 455px;
-  }
-  @media screen and (min-width: 1024px) {
+    margin-bottom: 8px;
+    } 
+    @media screen and (min-width: 1024px) {
+
     width: 309px;
     height: 449px;
   }
@@ -37,10 +50,36 @@ img {
 
   margin-bottom: 60px;
 }
-
-.filmCard__wrap {
-  margin-right: 16px;
+  
+.film__list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
 }
+  
+.filmCard__wrap{
+    width: 280px;
+    height: 443px;
+    margin-right: 16px;
+    margin-bottom: 32px;
+    @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 494px;
+    }
+    @media screen and (min-width: 1024px) {
+    width: 309px;
+    height: 489px;
+    }
+    // &:hover,
+    // &:focus {
+    //    transform: ;
+    // }
+    
+}  
+
+.info{
+    width: 280px;
+    @media screen and (min-width: 768px) {
 
 .info {
   width: 208px;
@@ -51,7 +90,6 @@ img {
     width: 309px;
   }
 }
-
 .info__title {
   font-family: 'Roboto';
   font-style: normal;
@@ -84,6 +122,19 @@ img {
   margin-right: 5px;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.info__voteAverage {
+    height: 16px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #FF6B08;
+}
+
+.info_voteValue {
+    color: #ffffff;
 }
 
 .stick {
