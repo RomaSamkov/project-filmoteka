@@ -1,9 +1,16 @@
 function myLibraryHeaderTemplate(){
     return `
     <div class="header__navigation--library">
-      <a class="header__logo link" href="./index.html"
-        ><svg width="24" height="24">
-          <use href="./images/symbol-defs.svg#icon-film"></use>
+      <a class="header__logo link" href="./index.html">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.82 2H4.18C2.97602 2 2 2.97602 2 4.18V19.82C2 21.024 2.97602 22 4.18 22H19.82C21.024 22 22 21.024 22 19.82V4.18C22 2.97602 21.024 2 19.82 2Z" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7 2V22" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 2V22" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12H22" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 7H7" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17H7" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 17H22" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 7H22" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="header__title">Filmoteka</span>
       </a>
@@ -18,12 +25,12 @@ function myLibraryHeaderTemplate(){
     </div>
     <ul class="header__button list">
       <li class="header__item">
-        <button class="header__btns header__btn--active" type="button" id="btn-watched">
+        <button class="header__btns isActive js-watched-btn" type="button" id="btn-watched">
           Watched
         </button>
       </li>
       <li class="header__item">
-        <button class="header__btns header__btn--noactive" type="button" id="btn-queue">
+        <button class="header__btns  js-queue-btn" type="button" id="btn-queue">
           queue
         </button>
       </li>

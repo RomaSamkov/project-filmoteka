@@ -50,6 +50,15 @@
   cursor: pointer;
   font-family: inherit;
   color: var(--primari-white-color);
+
+  background-color: transparent;
+  border: 1px solid var(--primari-white-color);
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+  }
+
   @media screen and (min-width: 768px) {
     width: 152px;
   }
@@ -61,23 +70,10 @@
 .header__item:not(:first-child) {
   margin-left: 16px;
 }
-.header__btn--active {
+
+.header__btns.isActive {
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   border: transparent;
   background-color: var(--accent-color);
-  &:hover,
-  &:focus {
-    border: 1px solid var(--accent-color);
-    background-color: transparent;
-    color: var(--accent-color);
-  }
-}
-.header__btn--noactive {
-  background-color: transparent;
-  border: 1px solid var(--primari-white-color);
-  &:hover,
-  &:focus {
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-  }
+  color: var(--primari-white-color);
 }

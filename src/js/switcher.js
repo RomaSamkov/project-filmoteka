@@ -33,7 +33,7 @@ const backgroundColorList = document.querySelector('.section');
 const headerContainer = document.querySelector('.header');
 const footerContainer = document.querySelector('.footer');
 
-function switchTheme() {
+export default function switchTheme() {
   if (currentTheme === 'light') {
     element.style.setProperty('--accent-color', darkTheme.accent);
     element.style.setProperty('--primari-white-color', darkTheme.main);
