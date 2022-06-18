@@ -12,12 +12,14 @@ function movieTemplate(film){
                 return acc;
             }else if (index > 1){
                 return acc + ' Others';
+            }else{
+                const str = genres.filter(genre => genre.id === id).map(genre => genre.name);
+                
+            return acc + ' ' + str;
             }
-            const str = genres.filter(genre => genre.id === id).map(genre => genre.name);
-            return acc + '' + str;
         }, '');
-
-        const shortList = genreArray.split(' ').join(', ');
+        
+        const shortList = genreArray.trim().split(' ').join(', ');
 
         return `
         <li class="filmCard__wrap">
