@@ -1,5 +1,5 @@
-function myLibraryHeaderTemplate(){
-    return `
+function myLibraryHeaderTemplate() {
+  return `
     <div class="header__navigation--library">
       <a class="header__logo link" href="./index.html">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@ function myLibraryHeaderTemplate(){
       </label>
       <button class="switcher-theme-name">Dark</button>
     </div>
-    `
+    `;
 }
 
 export default myLibraryHeaderTemplate;

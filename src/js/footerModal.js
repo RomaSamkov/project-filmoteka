@@ -19,7 +19,7 @@ function onCloseFooterModal(event) {
 }
 
 function onClickFooterBackdrop(event) {
-    if (event.target === eevent.currentTarget) {
+    if (event.target === event.currentTarget) {
 
         onCloseFooterModal()
     };

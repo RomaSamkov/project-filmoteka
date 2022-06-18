@@ -30,7 +30,6 @@ let currentTheme = 'light';
 
 const element = document.documentElement;
 const backgroundColorList = document.querySelector('.section');
-const headerContainer = document.querySelector('.header');
 const footerContainer = document.querySelector('.footer');
 
 export default function switchTheme() {
@@ -47,7 +46,6 @@ export default function switchTheme() {
     element.style.setProperty('--information-modal-text-color', darkTheme.modalInfoText);
 
     backgroundColorList.classList.add('section--bgd');
-    headerContainer.classList.add('header--shadow');
     footerContainer.classList.add('footer--shadow');
 
     currentTheme = 'dark';
@@ -64,7 +62,6 @@ export default function switchTheme() {
     element.style.setProperty('--information-modal-text-color', lightTheme.modalInfoText);
 
     backgroundColorList.classList.remove('section--bgd');
-    headerContainer.classList.remove('header--shadow');
     footerContainer.classList.remove('footer--shadow');
 
     currentTheme = 'light';

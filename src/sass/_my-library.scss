@@ -1,5 +1,5 @@
 .my-library {
-  background-color: var(--background-color-header);
+  background-color: var(--header-background-color);
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
     url(../images/Library-1.jpg);
   background-position: center;
@@ -58,7 +58,6 @@
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
   }
-
   @media screen and (min-width: 768px) {
     width: 152px;
   }
