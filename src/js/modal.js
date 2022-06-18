@@ -71,17 +71,7 @@ function onOpenModal(e) {
     trailer.addEventListener('click', () => {
       onOpenTrailer();
     });
-    // const BtnQueue = document.querySelector('.js-queue-btn');
-    // const BtnWatched = document.querySelector('.js-watched-btn');
-
-    // // BtnQueue.addEventListener('click', changTaxBtnQueue)
-    // // function changTaxBtnQueue(e) {
-    // //   if (BtnWatched.classList.contains('js-queue-btn')) {
-    // //
-    // //   }
-
-    // // }
-
+    
     refs.modalContainer
       .querySelector('.js-watched-btn')
       .addEventListener('click', onWatchedBtnClick);
@@ -106,7 +96,7 @@ function onOpenModal(e) {
       queueMovies.push(respons);
       localStorage.setItem(key, JSON.stringify(queueMovies));
     }
-    // refs.scrollOnModal.classList.toggle('scroll-blocked');
+    
   });
 }
 
@@ -159,7 +149,7 @@ function renderSelectedFilm(film) {
 <div class="modal-wrap">
   <div class="wrap-img">
   <button class="trailer" id="${id}">
-      Trailer
+      &#x25BA;
     </button>
     <img
       data-id="${id}"
@@ -207,14 +197,3 @@ function renderSelectedFilm(film) {
 </div>
         `;
 }
-
-// function onClickModalBtn(e) {
-//   if (e.target.nodeName !== 'BUTTON') {
-//     return;
-//   }
-//   const carrentBtn = document.querySelector('.carrent-btn');
-//   if (carrentBtn) {
-//     e.target.classList.remove('carrent-btn');
-//   }
-//   e.target.classList.toggle('carrent-btn');
-// }
