@@ -1,5 +1,5 @@
-function myLibraryHeaderTemplate(){
-    return `
+function myLibraryHeaderTemplate() {
+  return `
     <div class="header__navigation--library">
       <a class="header__logo link" href="./index.html"
         ><svg width="24" height="24">
@@ -18,12 +18,12 @@ function myLibraryHeaderTemplate(){
     </div>
     <ul class="header__button list">
       <li class="header__item">
-        <button class="header__btns header__btn--active" type="button" id="btn-watched">
+        <button class="header__btns" type="button" id="btn-watched">
           Watched
         </button>
       </li>
       <li class="header__item">
-        <button class="header__btns header__btn--noactive" type="button" id="btn-queue">
+        <button class="header__btns" type="button" id="btn-queue">
           queue
         </button>
       </li>
@@ -36,7 +36,7 @@ function myLibraryHeaderTemplate(){
       </label>
       <button class="switcher-theme-name">Dark</button>
     </div>
-    `
+    `;
 }
 
 export default myLibraryHeaderTemplate;

@@ -92,21 +92,24 @@ body {
 }
 .header__form {
   position: relative;
-  width: 280px;
+  width: 200px;
   height: 20px;
-  margin: 51px auto 0 auto;
+  margin: 51px auto 20px auto;
   border-bottom: 0.5px solid var(--header-text-color);
   @media screen and (min-width: 768px) {
-    margin: 41px auto 0 auto;
+    margin: 41px auto 20px auto;
     width: 330px;
   }
 }
 .header__input {
-  width: 250px;
+  width: 150px;
   border: none;
   background-color: transparent;
   color: var(--header-text-color);
   outline: none;
+  @media screen and (min-width: 768px) {
+    width: 250px;
+  }
 }
 .form__btn {
   position: absolute;
@@ -128,10 +131,4 @@ body {
 .header__input:-ms-input-placeholder {
   @include font(14px, 400, 1.14, 0.03em);
   color: var(--header-text-color);
-}
-
-.dark {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
 }

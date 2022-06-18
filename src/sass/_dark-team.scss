@@ -1,7 +1,5 @@
-.header--shadow {
-  box-shadow: 0px 5px 5px -5px var(--accent-color);
-}
 .section--bgd {
+  box-shadow: inset 0px 14px 15px -7px var(--accent-color);
   background: linear-gradient(
     90deg,
     rgba(17, 17, 17, 1) 0%,

@@ -1,5 +1,5 @@
 .my-library {
-  background-color: var(--background-color-header);
+  background-color: var(--header-background-color);
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
     url(../images/Library-1.jpg);
   background-position: center;
@@ -49,7 +49,21 @@
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
-  color: var(--primari-white-color);
+  color: var(--header-text-color);
+  background-color: transparent;
+  border: 1px solid var(--header-text-color);
+  outline: none;
+  &:hover {
+    border: 1px solid var(--header-accent-color);
+    background-color: transparent;
+    color: var(--header-accent-color);
+  }
+  &:focus {
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+    border: transparent;
+    background-color: var(--header-accent-color);
+    color: var(--header-text-color);
+  }
   @media screen and (min-width: 768px) {
     width: 152px;
   }
@@ -61,23 +75,10 @@
 .header__item:not(:first-child) {
   margin-left: 16px;
 }
+
 .header__btn--active {
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   border: transparent;
-  background-color: var(--accent-color);
-  &:hover,
-  &:focus {
-    border: 1px solid var(--accent-color);
-    background-color: transparent;
-    color: var(--accent-color);
-  }
-}
-.header__btn--noactive {
-  background-color: transparent;
-  border: 1px solid var(--primari-white-color);
-  &:hover,
-  &:focus {
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-  }
+  background-color: var(--header-accent-color);
+  color: var(--header-text-color);
 }
