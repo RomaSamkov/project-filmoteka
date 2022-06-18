@@ -11,7 +11,6 @@ body {
 
 .header {
   background-color: var(--header-background-color);
-  padding: 44px 20px 20px 20px;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
     url(../images/Rectangle-1.jpg);
@@ -24,7 +23,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 40px 32px 20px 32px;
   }
   @media screen and (min-width: 1024px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
@@ -35,8 +33,11 @@ body {
   }
 }
 .header__container {
-  padding-bottom: 60px;
+  padding: 44px 20px 60px 20px;
   position: relative;
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px 60px 32px;
+  }
 }
 .header__navigation {
   display: flex;
