@@ -49,20 +49,14 @@
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
-  color: var(--header-text-color);
+  color: var(--primari-white-color);
+
   background-color: transparent;
-  border: 1px solid var(--header-text-color);
-  outline: none;
-  &:hover {
-    border: 1px solid var(--header-accent-color);
-    background-color: transparent;
-    color: var(--header-accent-color);
-  }
+  border: 1px solid var(--primari-white-color);
+  &:hover,
   &:focus {
-    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-    border: transparent;
-    background-color: var(--header-accent-color);
-    color: var(--header-text-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
   }
   @media screen and (min-width: 768px) {
     width: 152px;
@@ -76,9 +70,9 @@
   margin-left: 16px;
 }
 
-.header__btn--active {
+.header__btns.isActive {
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   border: transparent;
-  background-color: var(--header-accent-color);
-  color: var(--header-text-color);
+  background-color: var(--accent-color);
+  color: var(--primari-white-color);
 }
