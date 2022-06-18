@@ -146,6 +146,7 @@ body {
   }
 }
 .team-item-title {
+  color: var(--primary-text-color);
   @include font(16px, 400, 1.14, 0.05em);
   margin-bottom: 0;
   margin-top: 5px;
@@ -163,7 +164,7 @@ body {
   margin: 0;
   @include font(14px, 700, 1.14, 0.05em);
   position: relative;
-  z-index: 1;
+  z-index: 10;
   bottom: 58px;
   width: 100%;
   opacity: 0;
