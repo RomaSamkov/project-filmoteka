@@ -43,18 +43,16 @@ export default class ApiServise {
       return;
     }
   }
-
-  onGetGenresIds() {
-    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`).then(
-      genresId => {
-        if (!genresId.ok) {
-          return;
-        }
-        return genresId.json();
-      },
-    );
+  async onGetGenresId() {
+    try {
+      const genresId = await axios.get(
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`,
+      );
+      return genresId.data;
+    } catch (error) {
+      return;
+    }
   }
-
   incrementPage() {
     this.page += 1;
   }
