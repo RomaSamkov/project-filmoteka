@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import { userFilms } from './api';
 import { IMG_URL } from './api';
+import {renderWatchedMovies, renderQueueMovies} from './my-library/renderMyLibraryMovies';
 
 refs.closeModalBtn.addEventListener('click', oncloseModal);
 refs.backdrop.addEventListener('click', onClickBackdrop);
@@ -65,49 +66,93 @@ function onOpenModal(e) {
   }
 
   userFilms.onSearchById().then(respons => {
-    const markup = renderSelectedFilm(respons);
+
+    let textContentWatchedBtn = '';
+    let textContentQueueBtn = '';
+    
+    const watchedMovies = getMoviesFromWatchedStorage();
+    const moviesWatchedId = watchedMovies.map(item => item.id);
+    if (moviesWatchedId.includes(respons.id)){
+      textContentWatchedBtn = 'Remove from Watched';
+    }else {
+      textContentWatchedBtn = 'Add to Watched';
+    };
+
+    const queueMovies = getMoviesFromQueuetorage();
+    const moviesQueueId = queueMovies.map(item => item.id);
+    if (moviesQueueId.includes(respons.id)){
+      textContentQueueBtn = 'Remove from Queue'
+    }else{
+      textContentQueueBtn = 'Add to Queue'
+    };
+
+    const markup = renderSelectedFilm(respons, textContentWatchedBtn, textContentQueueBtn);
     refs.modalContainer.insertAdjacentHTML('afterbegin', markup);
     const trailer = document.querySelector('.trailer');
     trailer.addEventListener('click', () => {
       onOpenTrailer();
     });
     
-    refs.modalContainer
-      .querySelector('.js-watched-btn')
-      .addEventListener('click', onWatchedBtnClick);
-    refs.modalContainer.querySelector('.js-queue-btn').addEventListener('click', onQueueBtnClick);
+    const watchedBtn =  refs.modalContainer.querySelector('.js-watched-btn');
+    watchedBtn.addEventListener('click', onWatchedBtnClick);
+    const queueBtn = refs.modalContainer.querySelector('.js-queue-btn');
+    queueBtn.addEventListener('click', onQueueBtnClick);
 
     function onWatchedBtnClick() {
       const key = 'watched';
-      const watchedMovies = addToWatchedStorage();
+      const watchedMovies = getMoviesFromWatchedStorage();
       const moviesId = watchedMovies.map(item => item.id);
 
-      if (moviesId.includes(respons.id)) return;
-      watchedMovies.push(respons);
-      localStorage.setItem(key, JSON.stringify(watchedMovies));
-    }
+      if (moviesId.includes(respons.id)) {
+          const removeMovie = watchedMovies.filter(movie => movie.id !== respons.id);
+          localStorage.setItem(key, JSON.stringify(removeMovie));
+          watchedBtn.textContent = 'Add to Watched';
+          if(document.querySelector('.js-library')){
+            renderWatchedMovies();
+          }
+          
+      }else {
+        watchedMovies.push(respons);
+        localStorage.setItem(key, JSON.stringify(watchedMovies));
+        watchedBtn.textContent = 'Remove from Watched';
+        if(document.querySelector('.js-library')){
+          renderWatchedMovies();
+        }
+      }
+    };
 
     function onQueueBtnClick() {
       const key = 'queue';
-      const queueMovies = addToQueueStorage();
+      const queueMovies = getMoviesFromQueuetorage();
       const moviesId = queueMovies.map(item => item.id);
 
-      if (moviesId.includes(respons.id)) return;
-      queueMovies.push(respons);
-      localStorage.setItem(key, JSON.stringify(queueMovies));
-    }
-    
+      if (moviesId.includes(respons.id)){
+        const removeMovie = queueMovies.filter(movie => movie.id !== respons.id);
+        localStorage.setItem(key, JSON.stringify(removeMovie));
+        queueBtn.textContent = 'Add to Watched';
+        if(document.querySelector('.js-library')){
+          renderQueueMovies();
+        }
+      }else{
+        queueMovies.push(respons);
+        localStorage.setItem(key, JSON.stringify(queueMovies));
+        queueBtn.textContent = 'Remove from Watched';
+        if(document.querySelector('.js-library')){
+          renderQueueMovies();
+        }
+      }
+    };
   });
-}
+};
 
-function addToWatchedStorage() {
+function getMoviesFromWatchedStorage() {
   const data = JSON.parse(localStorage.getItem('watched'));
   if (data) {
     return [...data];
   }
   return [];
 }
-function addToQueueStorage() {
+function getMoviesFromQueuetorage() {
   const data = JSON.parse(localStorage.getItem('queue'));
   if (data) {
     return [...data];
@@ -134,7 +179,7 @@ function onEscKeyPress(e) {
   }
 }
 
-function renderSelectedFilm(film) {
+function renderSelectedFilm(film, textContentWatchedBtn, textContentQueueBtn) {
   const {
     original_title,
     poster_path,
@@ -191,8 +236,8 @@ function renderSelectedFilm(film) {
       </div>
     </div>
     <div class="modal-button-list">
-      <button data-id="${id}" class="modal-button js-watched-btn">add to Watched</button>
-      <button data-id="${id}" class="modal-button js-queue-btn">add to queue</button>
+      <button data-id="${id}" class="modal-button js-watched-btn">${textContentWatchedBtn}</button>
+      <button data-id="${id}" class="modal-button js-queue-btn">${textContentQueueBtn}</button>
     </div>
       </div>
 </div>

@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "lodash.throttle": "^4.1.1",
     "notiflix": "^3.2.5"
   }
 }
