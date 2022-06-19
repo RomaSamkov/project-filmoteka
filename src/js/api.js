@@ -43,7 +43,7 @@ export default class ApiServise {
       return;
     }
   }
-  async onGetGenresIds() {
+  async onGetGenresId() {
     try {
       const genresId = await axios.get(
         `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`,
