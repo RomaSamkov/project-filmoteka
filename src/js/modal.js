@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import { userFilms } from './api';
 import { IMG_URL } from './api';
+import { renderWatchedMovies, renderQueueMovies } from './my-library/renderMyLibraryMovies';
 
 refs.closeModalBtn.addEventListener('click', oncloseModal);
 refs.backdrop.addEventListener('click', onClickBackdrop);
@@ -71,7 +72,7 @@ function onOpenModal(e) {
     trailer.addEventListener('click', () => {
       onOpenTrailer();
     });
-    
+
     refs.modalContainer
       .querySelector('.js-watched-btn')
       .addEventListener('click', onWatchedBtnClick);
@@ -81,22 +82,38 @@ function onOpenModal(e) {
       const key = 'watched';
       const watchedMovies = addToWatchedStorage();
       const moviesId = watchedMovies.map(item => item.id);
+      const indexFilmWatched = moviesId.indexOf(respons.id)
+      let storWatchedBox = JSON.parse(localStorage.getItem('watched'));
 
-      if (moviesId.includes(respons.id)) return;
-      watchedMovies.push(respons);
-      localStorage.setItem(key, JSON.stringify(watchedMovies));
+      if (moviesId.includes(respons.id)) {
+        storWatchedBox.splice(indexFilmWatched, 1)
+        localStorage.setItem(key, JSON.stringify(storWatchedBox));
+        renderWatchedMovies()
+      } else {
+
+        watchedMovies.push(respons);
+        localStorage.setItem(key, JSON.stringify(watchedMovies));
+        renderWatchedMovies()
+      }
     }
 
     function onQueueBtnClick() {
       const key = 'queue';
       const queueMovies = addToQueueStorage();
       const moviesId = queueMovies.map(item => item.id);
+      const indexFilmQueue = moviesId.indexOf(respons.id);
+      let storQueueBox = JSON.parse(localStorage.getItem('queue'));
 
-      if (moviesId.includes(respons.id)) return;
-      queueMovies.push(respons);
-      localStorage.setItem(key, JSON.stringify(queueMovies));
+      if (moviesId.includes(respons.id)) {
+        storQueueBox.splice(indexFilmQueue, 1)
+        localStorage.setItem(key, JSON.stringify(storQueueBox));
+        renderQueueMovies();
+      } else {
+        queueMovies.push(respons);
+        localStorage.setItem(key, JSON.stringify(queueMovies));
+        renderQueueMovies();
+      }
     }
-    
   });
 }
 
@@ -190,8 +207,8 @@ function renderSelectedFilm(film) {
       </div>
     </div>
     <div class="modal-button-list">
-      <button data-id="${id}" class="modal-button js-watched-btn">add to Watched</button>
-      <button data-id="${id}" class="modal-button js-queue-btn">add to queue</button>
+      <button data-id="${id}" class="modal-button js-watched-btn">Add to Watched</button>
+      <button data-id="${id}" class="modal-button js-queue-btn">Add to Queue</button>
     </div>
       </div>
 </div>

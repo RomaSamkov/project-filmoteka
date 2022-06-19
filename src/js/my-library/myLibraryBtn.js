@@ -1,12 +1,12 @@
-import {refs} from '../refs';
+import { refs } from '../refs';
 import myLibraryHeaderTemplate from './myLibraryHeaderTemplate';
-import {renderWatchedMovies, renderQueueMovies} from './renderMyLibraryMovies';
+import { renderWatchedMovies, renderQueueMovies } from './renderMyLibraryMovies';
 import switchTheme from '../switcher';
 
 
 refs.myLibraryBtn.addEventListener('click', onMyLibraryBtnClick);
 
-function onMyLibraryBtnClick(){
+function onMyLibraryBtnClick() {
     refs.header.classList.add('my-library');
     const markup = myLibraryHeaderTemplate();
     refs.headerContainer.innerHTML = markup;
@@ -21,13 +21,13 @@ function onMyLibraryBtnClick(){
     document.querySelector('.js-queue-btn').addEventListener('click', onQueueBtn);
 };
 
-function onWatchedBtn(){
+function onWatchedBtn() {
     renderWatchedMovies();
     document.querySelector('.js-queue-btn').classList.remove('isActive');
     document.querySelector('.js-watched-btn').classList.add('isActive');
 };
 
-function onQueueBtn(){
+function onQueueBtn() {
     renderQueueMovies();
     document.querySelector('.js-watched-btn').classList.remove('isActive');
     document.querySelector('.js-queue-btn').classList.add('isActive');
