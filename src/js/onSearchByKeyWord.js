@@ -4,6 +4,7 @@ import { userFilms } from './api';
 import renderTrendsOnMain from './renderTrendsOnMain';
 import createPagination from './pagination';
 import toggleDragonSpiner from './spiner';
+import renderWatchedMovies from './my-library/renderMyLibraryMovies';
 
 const onSearch = ev => {
   ev.preventDefault();
@@ -30,7 +31,7 @@ export default function renderCardsAndPagination() {
         }, 1000);
       })
       .catch(error => Notiflix.Notify.failure('Error!'));
-  } else {
+  }else {
     toggleDragonSpiner();
     userFilms
       .getTrendingFilm()

@@ -168,7 +168,8 @@ function renderSelectedFilm(film) {
             <span class="item-name">Vote/Votes</span>
            <span class="item-value">
            <div class="item-activ-carrent">
-           <span class="selection-item">${vote_average}</span></div>/${vote_count}</span>
+           <span class="selection-item">${vote_average}</span></div> / <div class="item-activ-inactive">
+           <span class="selection-item">${vote_count}</span></div></span>
          </li>
          <li class="list-item">
            <span class="item-name">Popularity</span>

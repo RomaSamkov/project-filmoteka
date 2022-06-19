@@ -5,14 +5,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 44px 20px 20px 20px;
   @media screen and (min-width: 768px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
       url(../images/Library-2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 40px 32px 20px 32px;
   }
   @media screen and (min-width: 1024px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.4)),
@@ -22,8 +20,11 @@
   }
 }
 .library__container {
-  padding-bottom: 40px;
+  padding: 40px 20px 40px 20px;
   position: relative;
+  @media screen and (min-width: 768px) {
+    padding: 45px 32px 20px 32px;
+  }
 }
 .header__navigation--library {
   display: flex;
@@ -50,19 +51,13 @@
   cursor: pointer;
   font-family: inherit;
   color: var(--header-text-color);
+
   background-color: transparent;
   border: 1px solid var(--header-text-color);
-  outline: none;
-  &:hover {
-    border: 1px solid var(--header-accent-color);
-    background-color: transparent;
-    color: var(--header-accent-color);
-  }
+  &:hover,
   &:focus {
-    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-    border: transparent;
-    background-color: var(--header-accent-color);
-    color: var(--header-text-color);
+    border: 1px solid var(--header-accent-color);
+    color: var(--header-accent-color);
   }
   @media screen and (min-width: 768px) {
     width: 152px;
@@ -76,7 +71,7 @@
   margin-left: 16px;
 }
 
-.header__btn--active {
+.header__btns.isActive {
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   border: transparent;
   background-color: var(--header-accent-color);

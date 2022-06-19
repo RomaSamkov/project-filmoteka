@@ -1,21 +1,28 @@
 import {refs} from "../refs";
+import movieTemplate from "../moivieTamplate";
+import createPagination from "../pagination";
 
-// import createCard from "./movies-template";
-// import createPagination from "./pagination";
 
-
-// function renderWatchedMovies(){
-//     const data = localStorage.getItem('watched');
-//     const movies = JSON.parse(data);
+function renderWatchedMovies(){
+    const films = JSON.parse(localStorage.getItem('watched'));
     
-//     if (!data){
-//         refs.cardList.innerHTML = '';
-//     }else {
-//         const markup = createCard(movies);
-//         refs.filmsContainer.innerHTML = markup.join('');
-    
-//     }
-//     createPagination(1, 1);
-// }
+    if (!films){
+        refs.filmsContainer.innerHTML = '';
+    }else {
+        const markup = films.map(movieTemplate);
+        refs.filmsContainer.innerHTML = markup.join('');
+    }
+};
 
-// export default renderWatchedMovies;
+function renderQueueMovies(){
+    const films = JSON.parse(localStorage.getItem('queue'));
+    
+    if (!films){
+        refs.filmsContainer.innerHTML = '';
+    }else {
+        const markup = films.map(movieTemplate);
+        refs.filmsContainer.innerHTML = markup.join('');
+    }
+}
+
+export {renderWatchedMovies, renderQueueMovies};

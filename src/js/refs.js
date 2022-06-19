@@ -1,4 +1,5 @@
 export const refs = {
+  header: document.querySelector('.js-header'),
   headerContainer: document.querySelector('.js-header-container'),
   myLibraryBtn: document.querySelector('.js-library-btn'),
   formSearch: document.querySelector('.header__form'),
@@ -15,4 +16,5 @@ export const refs = {
   footerCloseModalBtn: document.querySelector('.footer-closeModalBtn'),
   scrollOnModal: document.querySelector('body'),
   trailerBtn: document.querySelector('.trailer'),
+  scrollToTopBtn:document.querySelector('.js-scroll-to-top-btn'),
 };

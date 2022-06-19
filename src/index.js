@@ -10,3 +10,4 @@ import './js/footerModal';
 import './js/switcher';
 import './js/trailer';
 import './js/my-library/myLibraryBtn';
+import './js/scrollToTopBtn';
