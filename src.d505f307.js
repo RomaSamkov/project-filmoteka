@@ -116,4 +116,4 @@ module.exports=[{id:28,name:"Action"},{id:12,name:"Adventure"},{id:16,name:"Anim
 },{"../refs":"VyiV","./myLibraryHeaderTemplate":"DVNE","./renderMyLibraryMovies":"lUQz","../switcher":"hql5"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/refs.js"),require("./js/api.js"),require("./js/onSearchByKeyWord.js"),require("./js/pagination"),require("./js/renderTrendsOnMain.js"),require("./js/modal.js"),require("./js/footerModal"),require("./js/switcher"),require("./js/trailer"),require("./js/my-library/myLibraryBtn");
 },{"./sass/main.scss":"clu1","./js/refs.js":"VyiV","./js/api.js":"cZF8","./js/onSearchByKeyWord.js":"kQBM","./js/pagination":"o8lo","./js/renderTrendsOnMain.js":"oWkO","./js/modal.js":"RSqK","./js/footerModal":"EagV","./js/switcher":"hql5","./js/trailer":"J7DG","./js/my-library/myLibraryBtn":"KTZu"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-filmoteka/src.44a5e922.js.map
+//# sourceMappingURL=/project-filmoteka/src.d505f307.js.map
