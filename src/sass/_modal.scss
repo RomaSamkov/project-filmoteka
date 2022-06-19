@@ -29,7 +29,7 @@ ul {
   overflow: hidden;
 }
 
-.modal-backdrop {
+.modal-backdrop, .modalLogin-backdrop  {
   z-index: 999;
   position: fixed;
   width: 100%;
@@ -40,7 +40,7 @@ ul {
   transition: opacity 350ms;
 }
 
-.modal-closeButton {
+.modal-closeButton, .js-loginModal-closeButton {
   background-color: transparent;
   border: none;
   padding: 0;
@@ -53,6 +53,69 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+//-------------на логін/реєстрацію-----------
+.loginForm {
+  margin: 0;
+  padding-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.registerFormInput {
+  margin: 0 0;
+  padding-left: 10px;
+  display: block;
+  width: 95%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+}
+
+.regFormButton{
+margin-top: 15px;
+}
+
+.registerFormInput:focus {
+  border-color: #f38721;
+}
+.registerForm {
+  margin: 0;
+  padding-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.registerFormUnit {
+  position: relative;
+  display: block;
+}
+
+.registerModalText {
+  margin: 0;
+  padding-top: 57px;
+  padding-bottom: 6px;
+  text-align: center;
+  font-family:"Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: #000000;
+}
+
+.registerFormText {
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #757575;
 }
 
 .modal-up {

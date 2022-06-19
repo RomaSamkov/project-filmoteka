@@ -12,3 +12,5 @@ import './js/trailer';
 import './js/renderCardsAndPagination';
 import './js/my-library/myLibraryBtn';
 import './js/scrollToTopBtn';
+import './js/firebase';
+import './js/modal-login.js';
