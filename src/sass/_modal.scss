@@ -25,10 +25,6 @@ ul {
   text-transform: uppercase;
 }
 
-.is-hidden > .modal-up {
-  transform: translate(-50%, -50%) scale(0.7);
-}
-
 .scroll-blocked {
   overflow: hidden;
 }
@@ -41,7 +37,7 @@ ul {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.1);
-  transition: opacity 250ms, visibility 250ms;
+  transition: opacity 450ms;
 }
 
 .modal-closeButton {
@@ -71,7 +67,7 @@ ul {
   transform: translate(-50%, -50%) scale(1);
   padding: 48px 20px 40px 20px;
   overflow-y: scroll;
-  transition: linear 0.7s;
+  
 
   @media screen and (min-width: 767px) {
     max-width: none;
@@ -81,7 +77,7 @@ ul {
     height: auto;
   }
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     width: 814px;
     padding: 50px 30px 40px 30px;
   }
@@ -101,7 +97,7 @@ ul {
     justify-content: flex-end;
   }
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     justify-content: flex-start;
     align-self: start;
     grid-column: 2/3;
@@ -135,7 +131,7 @@ ul {
     width: 125px;
   }
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
   }
 }
@@ -175,7 +171,7 @@ ul {
     width: 264px;
   }
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     width: 391px;
   }
 }
@@ -193,7 +189,7 @@ ul {
     margin-right: 68px;
   }
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     height: 478px;
     width: 375px;
     margin-right: 16px;
@@ -233,7 +229,7 @@ ul {
   line-height: 1.33;
   color: #8c8c8c;
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     margin-right: 85px;
   }
 }
@@ -253,7 +249,7 @@ ul {
   font-size: 20px;
   line-height: 1, 15;
 
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     font-size: 30px;
     line-height: 1, 16;
   }
@@ -275,6 +271,16 @@ ul {
   border-radius: 5px;
   background-color: var(--accent-color);
   color: white;
+}
+
+.item-activ-inactive {
+  display: inline-block;
+  text-align: center;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: #F7F7F7;
+  
 }
 
 .title-about {
