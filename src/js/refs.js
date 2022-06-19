@@ -16,4 +16,5 @@ export const refs = {
   footerCloseModalBtn: document.querySelector('.footer-closeModalBtn'),
   scrollOnModal: document.querySelector('body'),
   trailerBtn: document.querySelector('.trailer'),
+  scrollToTopBtn:document.querySelector('.js-scroll-to-top-btn'),
 };
