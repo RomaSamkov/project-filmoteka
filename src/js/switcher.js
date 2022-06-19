@@ -26,14 +26,18 @@ const lightTheme = {
   modalInfoText: '#8c8c8c',
 };
 
-let currentTheme = 'light';
+const themeSwitch = document.querySelector('#theme-switch');
+
+themeSwitch.addEventListener('change', switchTheme);
 
 const element = document.documentElement;
 const backgroundColorList = document.querySelector('.section');
 const footerContainer = document.querySelector('.footer');
 
-export default function switchTheme() {
-  if (currentTheme === 'light') {
+function checkedThem() {
+  const currentTheme = localStorage.getItem('theme');
+  console.log(currentTheme);
+  if (currentTheme === 'dark') {
     element.style.setProperty('--accent-color', darkTheme.accent);
     element.style.setProperty('--primari-white-color', darkTheme.main);
     element.style.setProperty('--primary-text-color', darkTheme.textColor);
@@ -48,7 +52,7 @@ export default function switchTheme() {
     backgroundColorList.classList.add('section--bgd');
     footerContainer.classList.add('footer--shadow');
 
-    currentTheme = 'dark';
+    themeSwitch.checked = true;
   } else {
     element.style.setProperty('--accent-color', lightTheme.accent);
     element.style.setProperty('--primari-white-color', lightTheme.main);
@@ -64,10 +68,21 @@ export default function switchTheme() {
     backgroundColorList.classList.remove('section--bgd');
     footerContainer.classList.remove('footer--shadow');
 
-    currentTheme = 'light';
+    themeSwitch.checked = false;
   }
 }
+function switchTheme(event) {
+  console.dir(event.target.checked);
+  const check = event.target.checked;
+  console.log(check);
+  if (check) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+  checkedThem();
+}
 
-const themeSwitch = document.querySelector('#theme-switch');
+checkedThem();
 
-themeSwitch.addEventListener('change', switchTheme);
+export { checkedThem, switchTheme };
