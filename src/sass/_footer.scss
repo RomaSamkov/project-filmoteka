@@ -81,23 +81,21 @@ body {
   box-shadow: 5px 5px 4px 3px rgba(0, 0, 0, 0.2);
   @media screen and (min-width: 768px) {
     width: 700px;
-    height: 520px;
+    height: 530px;
     padding: 10px;
   }
   @media screen and (min-width: 1024px) {
     width: 900px;
-    height: 620px;
+    height: 630px;
     padding: 15px;
   }
 }
 .footer-closeModalBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 35px;
+  width: 25px;
+  height: 25px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -109,7 +107,7 @@ body {
 .team-title {
   color: var(--primary-text-color);
   text-shadow: 1px 1px 4px var(--accent-color);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   margin-top: 5px;
   text-align: center;
   font-size: 24px;
@@ -141,7 +139,7 @@ body {
   @include font(14px, 400, 1.14, 0.05em);
 }
 .photo-card {
-  margin-bottom: 18px;
+  margin-bottom: 27px;
   @media screen and (min-width: 768px) {
     margin-right: 10px;
   }
