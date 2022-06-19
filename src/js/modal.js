@@ -12,6 +12,7 @@ function onOpenModal(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+  refs.modalContainer.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscKeyPress);
   refs.scrollOnModal.classList.toggle('scroll-blocked');
@@ -163,7 +164,7 @@ function getMoviesFromQueuetorage() {
 function oncloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backdrop.classList.add('is-hidden');
-  refs.modalContainer.innerHTML = '';
+  
   refs.scrollOnModal.classList.toggle('scroll-blocked');
 }
 
