@@ -53,7 +53,7 @@ body {
 .footer-modal {
   width: 350px;
   padding: 10px;
-  max-height: calc(100vh - 75px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   background-color: var(--footer-background-color);
   position: absolute;
@@ -76,21 +76,23 @@ body {
 }
 .footer-closeModalBtn {
   position: absolute;
+  padding: 0;
   top: 10px;
   right: 10px;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: var(--secondary-text-color);
+  fill: var(--primary-text-color);
   &:hover {
     fill: var(--accent-color);
   }
 }
+
 .team-title {
   color: var(--primary-text-color);
   text-shadow: 1px 1px 4px var(--accent-color);
