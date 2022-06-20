@@ -1,5 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
+  text-align: center;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
 
 .footer {
@@ -73,9 +77,13 @@ body {
     visibility 300ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(0, 0, 0, 0.5);
 }
+.footer-modal::-webkit-scrollbar {
+  display: none;
+}
 .footer-modal {
   width: 350px;
   padding: 10px;
+  border-radius: 15px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
   background-color: var(--footer-bgd-modal);
@@ -86,6 +94,7 @@ body {
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 300ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 5px 5px 4px 3px rgba(0, 0, 0, 0.2);
+  -ms-overflow-style: none;
   @media screen and (min-width: 768px) {
     width: 700px;
     height: 530px;
