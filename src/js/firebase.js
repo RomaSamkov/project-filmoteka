@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, set, ref, update } from "firebase/database";
 import { refs } from './refs';
+import Notiflix from 'notiflix';
 
 export const txtEmail = document.querySelector('#txtEmail');
 export const txtPassword = document.querySelector('#txtPassword');
@@ -21,7 +22,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(firebaseApp);
 
-// -----------------Реєстрація----------------------------
+// -----------------Реєстрація----------------------------  
 
 regSubmitData.addEventListener('click', (e) => {
   var email = document.getElementById('regEmail').value;
@@ -31,19 +32,19 @@ regSubmitData.addEventListener('click', (e) => {
   
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    // Signed in 
-   
+    // Signed in     
     refs.backdropLogin.classList.add('is-hidden');
-    const user = userCredential.user;
+    refs.scrollOnModal.classList.toggle('scroll-blocked');        
+    const user = userCredential.user;    
     // ...
      set(ref(database, 'users/' + user.uid), {
     email: regEmail,
-       password: regPassword,
-    
+    password: regPassword,    
      })
     .then(() => {
   // Data saved successfully!
      // alert('user created successfully');
+     Notiflix.Notify.success("Registration successful");     
 })
 .catch((error) => {
   // The write failed...
@@ -72,9 +73,10 @@ logSubmitData.addEventListener('click', () => {
     .then((userCredential) => {
       // Signed in
       // console.log('Signed in');
-      console.log(auth.currentUser.email);
+      
       const user = userCredential.user;
       refs.backdropLogin.classList.add('is-hidden');
+      refs.scrollOnModal.classList.toggle('scroll-blocked'); 
       // ...
       //oncloseModal();
       var lgDate = new Date();
@@ -85,6 +87,7 @@ logSubmitData.addEventListener('click', () => {
         .then(() => {
           // Data saved successfully!
           //alert('user logget in successfully');
+          Notiflix.Notify.success("User logget in successfully");
         })
         .catch((error) => {
           // The write failed...
@@ -102,11 +105,10 @@ logSubmitData.addEventListener('click', () => {
 
 //-------------Вихід з аккаунту-------------------------------
 
-refs.logOutRef.addEventListener('click',onLogOut);
-
 function onLogOut(){
   signOut(auth);
   //alert('Sign-out successful');
+  Notiflix.Notify.info("Sign-out successful");
 }
 
 // -----------------Переглядач Залогінений----------------------------
@@ -115,12 +117,18 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
    
     //var userSignedIn = true;
-    refs.backDropLibrary.classList.remove('is-hidden');
+    refs.backDropLibrary.classList.remove('library-displayNone');
+
+    const indexMailSign = auth.currentUser.email.split("").indexOf("@");
+    const nickName = auth.currentUser.email.slice(0,indexMailSign) ;
+
+
     const headerSigneddInBtn = document.querySelector(".logBtn");
     const markupIdAndSignOut = `<span style="color: var(--header-accent-color);
-    text-transform: lowercase">${auth.currentUser.email}</span><a> Log Out</a>`;
+    text-transform: lowercase">${nickName}</span>&nbsp;&nbsp;<a>Log Out</a>`;
 
-    headerSigneddInBtn.innerHTML =markupIdAndSignOut;
+    headerSigneddInBtn.innerHTML = markupIdAndSignOut;
+    refs.logOutRef.addEventListener('click',onLogOut);   
 
     const uid = user.uid;    
     //alert('User is signed in')
@@ -130,13 +138,14 @@ onAuthStateChanged(auth, (user) => {
     // User is signed out
     // ...
     //var userSignedIn = false;
-    refs.backDropLibrary.classList.add('is-hidden');
+    refs.backDropLibrary.classList.add('library-displayNone');
         const txtLogBtn = document.querySelector(".logBtn");
     txtLogBtn.innerHTML = 'Sign In';
 
     const headerSigneddOutBtn = document.querySelector(".logBtn");
     const markupIdAndSignOut =  `<a > Sign In</a>`;
     headerSigneddOutBtn.innerHTML =markupIdAndSignOut;
+    refs.logOutRef.removeEventListener('click',onLogOut); 
     
    // alert('User is signed out')
   }
