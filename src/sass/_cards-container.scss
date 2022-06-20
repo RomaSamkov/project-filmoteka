@@ -21,7 +21,7 @@ img {
     width: 280px;
     height: 402px;
     margin-bottom: 10px;  
-    box-shadow: 0 4px 8px 0 rgba(124, 124, 124, 0.2), 0 6px 20px 0 rgba(109, 109, 109, 0.19); 
+    box-shadow: 2px 4px 8px 1px rgb(105, 104, 104, 0.5), 2px 4px 8px 3px rgb(255, 107, 8, 0.6); 
     transition-property: transform;
     transition-duration: 250ms;
   
@@ -37,7 +37,7 @@ img {
 
     &:hover,
     &:focus {
-    transform: scale(1.05);
+    transform: scale(1.035);
   }
 }
 
@@ -55,11 +55,21 @@ img {
       
       @media screen and (min-width: 768px) {
       flex-basis: calc(100% / 2 - 16px);
-      margin-left: 16px;
+      margin-left: 32px;
+      &:nth-child(odd){
+        margin-left: 0;
+      }
       }
 
      @media screen and (min-width: 1024px) {
-     flex-basis: calc(100% / 3 - 16px);
+     flex-basis: calc(100% / 3 - 11px);
+     margin-left: 16px;
+      &:nth-child(odd){
+        margin-left: 16px;
+      }
+      &:nth-child(3n+1){
+        margin-left: 0px;
+      }
      } 
 }  
 
