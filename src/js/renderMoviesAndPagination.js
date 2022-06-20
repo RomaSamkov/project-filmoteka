@@ -3,11 +3,10 @@ import { refs } from './refs';
 import { userFilms } from './api';
 import { validationSearchedArray } from './onSearchByKeyWord';
 import createPagination from './pagination';
-import renderTrendsOnMain from './renderTrendsOnMain';
+import {renderTrendsOnMain} from './renderTrendsOnMain';
 import toggleDragonSpiner from './spiner';
-import renderWatchedMovies from './my-library/renderMyLibraryMovies';
 
-export default function renderCardsAndPagination() {
+export default function renderMoviesAndPagination() {
   refs.filmsContainer.innerHTML = '';
   if (userFilms.userSearch) {
     toggleDragonSpiner();
