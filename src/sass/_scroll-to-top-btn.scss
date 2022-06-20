@@ -1,0 +1,39 @@
+.scroll-to-top-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    position: fixed;
+    right: 15px;
+    bottom: 2.7rem;
+    z-index: 99;
+
+    background: #000;
+    border: 2px solid var(--accent-color);
+
+    visibility: hidden;
+    opacity: 0;
+
+    &:hover {
+        box-shadow: 0 0 4px 5px orange;
+    }
+    
+    & .scroll-to-top-btn_icon {
+        fill: var(--accent-color);
+        
+    }
+    @media screen and (min-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+.scroll-to-top-btn.isShow {
+    visibility: visible;
+    opacity: 1;
+}

@@ -5,11 +5,13 @@ export const API_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
+
+
 export default class ApiServise {
   constructor() {
     this.userSearch = '';
     this.id = 0;
-    this.page = 1;
+    this.page = setCurrentPage();
   }
   async getTrendingFilm() {
     try {
@@ -43,18 +45,16 @@ export default class ApiServise {
       return;
     }
   }
-
-  onGetGenresIds() {
-    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`).then(
-      genresId => {
-        if (!genresId.ok) {
-          return;
-        }
-        return genresId.json();
-      },
-    );
+  async onGetGenresId() {
+    try {
+      const genresId = await axios.get(
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`,
+      );
+      return genresId.data;
+    } catch (error) {
+      return;
+    }
   }
-
   incrementPage() {
     this.page += 1;
   }
@@ -76,7 +76,14 @@ export default class ApiServise {
   set searchFilm(newSearch) {
     this.userSearch = newSearch;
   }
-}
+};
 
 const userFilms = new ApiServise();
 export { userFilms };
+
+function setCurrentPage(){
+  const page = localStorage.getItem('page');
+
+  if(!page) return 1;
+  return Number(page);
+}

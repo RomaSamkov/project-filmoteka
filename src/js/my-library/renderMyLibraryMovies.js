@@ -1,21 +1,39 @@
-import {refs} from "../refs";
-
-// import createCard from "./movies-template";
-// import createPagination from "./pagination";
+import { refs } from '../refs';
+import movieTemplate from '../movieTamplate';
 
 
-// function renderWatchedMovies(){
-//     const data = localStorage.getItem('watched');
-//     const movies = JSON.parse(data);
-    
-//     if (!data){
-//         refs.cardList.innerHTML = '';
-//     }else {
-//         const markup = createCard(movies);
-//         refs.filmsContainer.innerHTML = markup.join('');
-    
-//     }
-//     createPagination(1, 1);
-// }
+function renderWatchedMovies() {
+  const films = JSON.parse(localStorage.getItem('watched'));
 
-// export default renderWatchedMovies;
+  if (!films || films.length === 0) {
+    const item = `
+    <li class="no-results">
+      <p class="library-text">Your collection list is empty.</p>
+      <img src='https://i.gifer.com/4m3f.gif' alt="No results" width= "100" class="img_r"/>
+    </li>`;
+    refs.filmsContainer.innerHTML = item;
+
+  } else {
+    const markup = films.map(movieTemplate);
+    refs.filmsContainer.innerHTML = markup.join('');
+  }
+};
+
+function renderQueueMovies() {
+  const films = JSON.parse(localStorage.getItem('queue'));
+
+  if (!films || !films.length) {
+    const item = `
+    <li class="no-results">
+      <p class="library-text">Your collection list is empty.</p>
+      <img src='https://i.gifer.com/4m3f.gif' alt="No results" width= "100" class="img_r"/>
+    </li>`;
+    refs.filmsContainer.innerHTML = item;
+
+  } else {
+    const markup = films.map(movieTemplate);
+    refs.filmsContainer.innerHTML = markup.join('');
+  }
+};
+
+export { renderWatchedMovies, renderQueueMovies };

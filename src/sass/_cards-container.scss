@@ -21,6 +21,10 @@ img {
     width: 280px;
     height: 402px;
     margin-bottom: 10px;  
+    box-shadow: 2px 4px 8px 1px rgb(105, 104, 104, 0.5), 2px 4px 8px 3px rgb(255, 107, 8, 0.6); 
+    transition-property: transform;
+    transition-duration: 250ms;
+  
     @media screen and (min-width: 768px) {
     width: 336px;
     height: 455px;
@@ -30,28 +34,46 @@ img {
     width: 309px;
     height: 449px;
     }       
+
+    &:hover,
+    &:focus {
+    transform: scale(1.035);
+  }
 }
 
 .film__list {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 60px;
+  margin-left: -16px;
+  
 }
 
+
+
 .filmCard__wrap{
-    width: 280px;
-    height: 443px;
-    margin-right: 16px;
-    margin-bottom: 32px;
-    @media screen and (min-width: 768px) {
-    width: 336px;
-    height: 494px;
-    }
-    @media screen and (min-width: 1024px) {
-    width: 309px;
-    height: 489px;
-    }
+   margin-bottom: 32px;
+      
+      @media screen and (min-width: 768px) {
+      flex-basis: calc(100% / 2 - 16px);
+      margin-left: 32px;
+      &:nth-child(odd){
+        margin-left: 0;
+      }
+      }
+
+     @media screen and (min-width: 1024px) {
+     flex-basis: calc(100% / 3 - 11px);
+     margin-left: 16px;
+      &:nth-child(odd){
+        margin-left: 16px;
+      }
+      &:nth-child(3n+1){
+        margin-left: 0px;
+      }
+     } 
 }  
+
+
 
 .info {
   width: 280px;

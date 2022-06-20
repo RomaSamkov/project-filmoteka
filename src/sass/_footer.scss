@@ -16,6 +16,29 @@ body {
 .footer-container {
   text-align: center;
 }
+.footer-paragraph {
+  color: var(--footer-text-color);
+}
+.heart-icon {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0px;
+  padding: 0px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .icon-heart {
   margin-left: 10px;
@@ -55,7 +78,7 @@ body {
   padding: 10px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  background-color: var(--footer-background-color);
+  background-color: var(--footer-bgd-modal);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -87,14 +110,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: var(--primary-text-color);
+  fill: var(--footer-text-modal);
   &:hover {
     fill: var(--accent-color);
   }
 }
 
 .team-title {
-  color: var(--primary-text-color);
+  color: var(--footer-text-modal);
   text-shadow: 1px 1px 4px var(--accent-color);
   margin-bottom: 25px;
   margin-top: 5px;
@@ -124,7 +147,7 @@ body {
   background-color: none;
 }
 .team-item-title {
-  color: var(--primary-text-color);
+  color: var(--footer-text-modal);
   @include font(14px, 400, 1.14, 0.05em);
 }
 .photo-card {
@@ -133,7 +156,7 @@ body {
     margin-right: 10px;
   }
   &:hover {
-    background-color: var(--footer-background-color);
+    background-color: var(--footer-bgd-modal);
     transform: scale(1.2);
     transition: 200ms;
   }
@@ -143,7 +166,7 @@ li:nth-child(5n) {
 }
 
 .modal-team-icon {
-  fill: var(--secondary-text-color);
+  fill: var(--footer-text-modal);
   margin-top: 4px;
 }
 .modal-team-icon:hover {
