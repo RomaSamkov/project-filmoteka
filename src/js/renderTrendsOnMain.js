@@ -17,4 +17,5 @@ export default function renderTrendsOnMain(films) {
   const murkup = films.map(movieTemplate);
 
   refs.filmsContainer.insertAdjacentHTML('beforeend', murkup.join(''));
-}
+};
+
