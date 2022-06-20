@@ -1,14 +1,14 @@
 import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { userFilms } from './api';
-import renderCardsAndPagination from './renderCardsAndPagination';
+import renderMoviesAndPagination from './renderMoviesAndPagination';
 
 const onSearch = ev => {
   ev.preventDefault();
   refs.filmsContainer.innerHTML = '';
   userFilms.searchFilm = ev.target.elements.searchQuery.value.trim();
   userFilms.resetPage();
-  renderCardsAndPagination();
+  renderMoviesAndPagination();
 };
 
 refs.formSearch.addEventListener('submit', onSearch);

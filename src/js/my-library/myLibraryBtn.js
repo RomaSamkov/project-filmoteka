@@ -3,6 +3,7 @@ import myLibraryHeaderTemplate from './myLibraryHeaderTemplate';
 import { renderWatchedMovies, renderQueueMovies } from './renderMyLibraryMovies';
 import { checkedThem, switchTheme } from '../switcher';
 
+
 refs.myLibraryBtn.addEventListener('click', onMyLibraryBtnClick);
 
 function onMyLibraryBtnClick() {
@@ -24,8 +25,6 @@ function onMyLibraryBtnClick() {
   }
   document.querySelector('.js-watched-btn').addEventListener('click', onWatchedBtn);
   document.querySelector('.js-queue-btn').addEventListener('click', onQueueBtn);
-
-  // localStorage.setItem('library', true);
 }
 
 function onWatchedBtn() {
@@ -39,6 +38,5 @@ function onQueueBtn() {
   document.querySelector('.js-watched-btn').classList.remove('isActive');
   document.querySelector('.js-queue-btn').classList.add('isActive');
 }
-
 
 export default onMyLibraryBtnClick;

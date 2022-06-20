@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { userFilms } from './api';
-import renderCardsAndPagination from './renderCardsAndPagination';
+import renderMoviesAndPagination from './renderMoviesAndPagination';
 
 export default function createPagination(page, totalPages) {
   const beforeTwoPage = page - 2;
@@ -52,17 +52,17 @@ function onBtnClick(event) {
   switch (target) {
     case '»':
       userFilms.incrementPage();
-      renderCardsAndPagination();
+      renderMoviesAndPagination();
       break;
     case '«':
       userFilms.decrementPage();
-      renderCardsAndPagination();
+      renderMoviesAndPagination();
       break;
     case '...':
       break;
     default:
       userFilms.setPage(Number(target));
-      renderCardsAndPagination();
+      renderMoviesAndPagination();
   }
   const page = JSON.stringify(userFilms.page)
   localStorage.setItem('page', page);
