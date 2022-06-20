@@ -61,27 +61,7 @@ iframe {
 #youtube-close-btn {
     position: absolute;
     border-radius: 50%;
-    // width: 48px;
-    // height: 48px;
     z-index: 2;
     top: -47px;
     right: -10px;
-
-    .fa-regular {
-        width: 35px;
-        height: 35px;
-        color: rgba(48, 55, 77, 0.486);
-        border-radius: 50%;
-        font-size: 30px;
-
-        &:hover,
-        &:focus {
-            color: var(--accent-color);
-            cursor: pointer;
-        }
-    }
-}
-
-.basicLightbox.basicLightbox--visible {
-    background-color: rgba(0, 0, 0, 0.9);
 }
