@@ -45,9 +45,6 @@ function checkedThem() {
     element.style.setProperty('--footer-background-color', darkTheme.footerBgd);
     element.style.setProperty('--footer-text-color', darkTheme.footerText);
     element.style.setProperty('--bgd-dark-color', darkTheme.bgr);
-    element.style.setProperty('--text-modal-color', darkTheme.modalText);
-    element.style.setProperty('--bgd-modal-color', darkTheme.modalBgd);
-    element.style.setProperty('--information-modal-text-color', darkTheme.modalInfoText);
 
     backgroundColorList.classList.add('section--bgd');
     footerContainer.classList.add('footer--shadow');
@@ -61,9 +58,6 @@ function checkedThem() {
     element.style.setProperty('--footer-background-color', lightTheme.footerBgd);
     element.style.setProperty('--footer-text-color', lightTheme.footerText);
     element.style.setProperty('--bgd-dark-color', lightTheme.bgr);
-    element.style.setProperty('--text-modal-color', lightTheme.modalText);
-    element.style.setProperty('--bgd-modal-color', lightTheme.modalBgd);
-    element.style.setProperty('--information-modal-text-color', lightTheme.modalInfoText);
 
     backgroundColorList.classList.remove('section--bgd');
     footerContainer.classList.remove('footer--shadow');
