@@ -1,7 +1,7 @@
 function myLibraryHeaderTemplate() {
   return `
     <div class="header__navigation--library js-library">
-      <a class="header__logo link" href="./index.html">
+      <a class="header__logo link js-logo" href="./index.html">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M19.82 2H4.18C2.97602 2 2 2.97602 2 4.18V19.82C2 21.024 2.97602 22 4.18 22H19.82C21.024 22 22 21.024 22 19.82V4.18C22 2.97602 21.024 2 19.82 2Z" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M7 2V22" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -16,7 +16,7 @@ function myLibraryHeaderTemplate() {
       </a>
       <ul class="header__list list">
         <li class="header__nav">
-          <a class="header__link link" href="./index.html">Home</a>
+          <a class="header__link link js-home-page" href="./index.html">Home</a>
         </li>
         <li class="header__nav">
           <a class="header__link link header-nav--pege" href="#">My Library</a>

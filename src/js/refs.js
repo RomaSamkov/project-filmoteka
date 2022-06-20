@@ -1,5 +1,7 @@
 export const refs = {
   header: document.querySelector('.js-header'),
+  headerLogo: document.querySelector('.js-logo'),
+  headerHomePage: document.querySelector('.js-home-page'),
   headerContainer: document.querySelector('.js-header-container'),
   myLibraryBtn: document.querySelector('.js-library-btn'),
   formSearch: document.querySelector('.header__form'),

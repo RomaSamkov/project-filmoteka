@@ -70,18 +70,14 @@ function onOpenModal(e) {
 
     let textContentWatchedBtn = '';
     let textContentQueueBtn = '';
-    
-    const watchedMovies = getMoviesFromWatchedStorage();
-    const moviesWatchedId = watchedMovies.map(item => item.id);
-    if (moviesWatchedId.includes(respons.id)){
+        
+    if (getMoviesIdFromWatchedStorage().includes(respons.id)){
       textContentWatchedBtn = 'Remove from Watched';
     }else {
       textContentWatchedBtn = 'Add to Watched';
     };
 
-    const queueMovies = getMoviesFromQueuetorage();
-    const moviesQueueId = queueMovies.map(item => item.id);
-    if (moviesQueueId.includes(respons.id)){
+    if (getMoviesIdFromQueueStorage().includes(respons.id)){
       textContentQueueBtn = 'Remove from Queue'
     }else{
       textContentQueueBtn = 'Add to Queue'
@@ -94,29 +90,29 @@ function onOpenModal(e) {
       onOpenTrailer();
     });
     
-    const watchedBtn =  refs.modalContainer.querySelector('.js-watched-btn');
+    const watchedBtn =  refs.modalContainer.querySelector('.js-modal-watched-btn');
     watchedBtn.addEventListener('click', onWatchedBtnClick);
-    const queueBtn = refs.modalContainer.querySelector('.js-queue-btn');
+    const queueBtn = refs.modalContainer.querySelector('.js-modal-queue-btn');
     queueBtn.addEventListener('click', onQueueBtnClick);
 
     function onWatchedBtnClick() {
       const key = 'watched';
       const watchedMovies = getMoviesFromWatchedStorage();
-      const moviesId = watchedMovies.map(item => item.id);
+      const moviesId = getMoviesIdFromWatchedStorage();
 
       if (moviesId.includes(respons.id)) {
           const removeMovie = watchedMovies.filter(movie => movie.id !== respons.id);
           localStorage.setItem(key, JSON.stringify(removeMovie));
           watchedBtn.textContent = 'Add to Watched';
-          if(document.querySelector('.js-library')){
+          console.log();
+          if(document.querySelector('.js-watched-btn.isActive')){
             renderWatchedMovies();
           }
-          
       }else {
         watchedMovies.push(respons);
         localStorage.setItem(key, JSON.stringify(watchedMovies));
         watchedBtn.textContent = 'Remove from Watched';
-        if(document.querySelector('.js-library')){
+        if(document.querySelector('.js-watched-btn.isActive')){
           renderWatchedMovies();
         }
       }
@@ -125,25 +121,34 @@ function onOpenModal(e) {
     function onQueueBtnClick() {
       const key = 'queue';
       const queueMovies = getMoviesFromQueuetorage();
-      const moviesId = queueMovies.map(item => item.id);
+      const moviesId = getMoviesIdFromQueueStorage();
 
       if (moviesId.includes(respons.id)){
         const removeMovie = queueMovies.filter(movie => movie.id !== respons.id);
         localStorage.setItem(key, JSON.stringify(removeMovie));
-        queueBtn.textContent = 'Add to Watched';
-        if(document.querySelector('.js-library')){
+        queueBtn.textContent = 'Add to Queue';
+        if(document.querySelector('.js-queue-btn.isActive')){
           renderQueueMovies();
         }
       }else{
         queueMovies.push(respons);
         localStorage.setItem(key, JSON.stringify(queueMovies));
-        queueBtn.textContent = 'Remove from Watched';
-        if(document.querySelector('.js-library')){
+        queueBtn.textContent = 'Remove from Queue';
+        if(document.querySelector('.js-queue-btn.isActive')){
           renderQueueMovies();
         }
       }
     };
   });
+};
+
+function getMoviesIdFromWatchedStorage(){
+  const watchedMovies = getMoviesFromWatchedStorage();
+  return watchedMovies.map(item => item.id);
+};
+function getMoviesIdFromQueueStorage(){
+  const queueMovies = getMoviesFromQueuetorage();
+  return queueMovies.map(item => item.id);
 };
 
 function getMoviesFromWatchedStorage() {
@@ -152,33 +157,32 @@ function getMoviesFromWatchedStorage() {
     return [...data];
   }
   return [];
-}
+};
 function getMoviesFromQueuetorage() {
   const data = JSON.parse(localStorage.getItem('queue'));
   if (data) {
     return [...data];
   }
   return [];
-}
+};
 
 function oncloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backdrop.classList.add('is-hidden');
-  
   refs.scrollOnModal.classList.toggle('scroll-blocked');
-}
+};
 
 function onClickBackdrop(e) {
   if (e.currentTarget === e.target) {
     oncloseModal();
   }
-}
+};
 
 function onEscKeyPress(e) {
   if (e.code === 'Escape') {
     oncloseModal();
   }
-}
+};
 
 function renderSelectedFilm(film, textContentWatchedBtn, textContentQueueBtn) {
   const {
@@ -237,8 +241,8 @@ function renderSelectedFilm(film, textContentWatchedBtn, textContentQueueBtn) {
       </div>
     </div>
     <div class="modal-button-list">
-      <button data-id="${id}" class="modal-button js-watched-btn">${textContentWatchedBtn}</button>
-      <button data-id="${id}" class="modal-button js-queue-btn">${textContentQueueBtn}</button>
+      <button data-id="${id}" class="modal-button js-modal-watched-btn">${textContentWatchedBtn}</button>
+      <button data-id="${id}" class="modal-button js-modal-queue-btn">${textContentQueueBtn}</button>
     </div>
       </div>
 </div>
