@@ -5,7 +5,7 @@ refs.closeLoginModalBtn.addEventListener('click', oncloseModal);
 refs.backdropLogin.addEventListener('click', onClickBackdrop);
 refs.openLoginModalBtn.addEventListener('click', onOpenLoginModal);
 
-  function oncloseModal() {
+function oncloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backdropLogin.classList.add('is-hidden');
   refs.scrollOnModal.classList.toggle('scroll-blocked');
@@ -17,7 +17,6 @@ function onClickBackdrop(e) {
   }
 }
 
-
 function onEscKeyPress(e) {
   if (e.code === 'Escape') {
     oncloseModal();
@@ -27,30 +26,28 @@ function onEscKeyPress(e) {
 const auth = getAuth();
 var userSignedIn;
 
-onAuthStateChanged(auth, (user) => {  
+onAuthStateChanged(auth, user => {
   if (user) {
-   // User is signed in, see docs for a list of available properties   
+    // User is signed in, see docs for a list of available properties
     userSignedIn = true;
-    return userSignedIn;   
+    return userSignedIn;
     //alert('User is signed in')
-       // ...
+    // ...
   } else {
-  userSignedIn = false;
-  return userSignedIn;
-   // User is signed out
-   // ...
-   //var userSignedIn = false;
-    }
-})
+    userSignedIn = false;
+    return userSignedIn;
+    // User is signed out
+    // ...
+    //var userSignedIn = false;
+  }
+});
 
 function onOpenLoginModal() {
   if (userSignedIn) {
-    
-    return
-   }
-    else {
+    return;
+  } else {
     refs.backdropLogin.classList.remove('is-hidden');
     window.addEventListener('keydown', onEscKeyPress);
     refs.scrollOnModal.classList.toggle('scroll-blocked');
-   }
+  }
 }
