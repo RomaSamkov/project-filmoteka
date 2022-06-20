@@ -153,4 +153,4 @@ var e=require("process");Object.defineProperty(exports,"__esModule",{value:!0}),
 },{"firebase/auth":"zKjx","./refs":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/refs.js"),require("./js/api.js"),require("./js/onSearchByKeyWord.js"),require("./js/pagination"),require("./js/renderTrendsOnMain.js"),require("./js/modal.js"),require("./js/footerModal"),require("./js/switcher"),require("./js/renderCardsAndPagination"),require("./js/my-library/myLibraryBtn"),require("./js/scrollToTopBtn"),require("./js/firebase"),require("./js/modal-login.js");
 },{"./sass/main.scss":"clu1","./js/refs.js":"VyiV","./js/api.js":"cZF8","./js/onSearchByKeyWord.js":"kQBM","./js/pagination":"o8lo","./js/renderTrendsOnMain.js":"oWkO","./js/modal.js":"RSqK","./js/footerModal":"EagV","./js/switcher":"hql5","./js/renderCardsAndPagination":"AcCw","./js/my-library/myLibraryBtn":"KTZu","./js/scrollToTopBtn":"qv5t","./js/firebase":"TXxf","./js/modal-login.js":"McUA"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-filmoteka/src.134dfcc3.js.map
+//# sourceMappingURL=/project-filmoteka/src.0b874014.js.map
