@@ -76,7 +76,7 @@ body {
 .footer-modal {
   width: 350px;
   padding: 10px;
-  max-height: calc(100vh - 75px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   background-color: var(--footer-bgd-modal);
   position: absolute;
@@ -99,10 +99,11 @@ body {
 }
 .footer-closeModalBtn {
   position: absolute;
+  padding: 0;
   top: 10px;
   right: 10px;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -114,6 +115,7 @@ body {
     fill: var(--accent-color);
   }
 }
+
 .team-title {
   color: var(--footer-text-modal);
   text-shadow: 1px 1px 4px var(--accent-color);
