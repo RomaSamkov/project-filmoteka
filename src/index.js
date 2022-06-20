@@ -8,7 +8,7 @@ import './js/modal.js';
 import './js/footerModal';
 // import './js/myLibrary';
 import './js/switcher';
-import './js/renderCardsAndPagination';
+import './js/renderMoviesAndPagination';
 import './js/my-library/myLibraryBtn';
 import './js/scrollToTopBtn';
 import './js/firebase';
