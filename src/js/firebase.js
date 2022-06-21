@@ -87,7 +87,7 @@ logSubmitData.addEventListener('click', () => {
         .then(() => {
           // Data saved successfully!
           //alert('user logget in successfully');
-          Notiflix.Notify.success("User logget in successfully");
+          Notiflix.Notify.success("Welcome to Filmoteka");
         })
         .catch((error) => {
           // The write failed...
