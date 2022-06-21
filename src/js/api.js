@@ -9,7 +9,7 @@ export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${A
 
 export default class ApiServise {
   constructor() {
-    this.userSearch = '';
+    this.userSearch = setSearchQuery();
     this.id = 0;
     this.page = setCurrentPage();
   }
@@ -86,4 +86,12 @@ function setCurrentPage(){
 
   if(!page) return 1;
   return Number(page);
-}
+};
+
+function setSearchQuery(){
+  const search = localStorage.getItem('search');
+  console.log(search);
+  if(!search) return '';
+  
+  return search;
+};

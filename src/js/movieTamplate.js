@@ -20,6 +20,10 @@ function movieTemplate(film) {
     }, '');
 
     const shortList = genreArray.trim().split(' ').join(', ');
+    let date = '';
+    if(release_date){
+      date = release_date.slice(0, 4);
+    }
 
     return `
         <li class="filmCard__wrap">
@@ -27,7 +31,7 @@ function movieTemplate(film) {
             <div class="info">
                 <h2 class="info__title">${original_title}</h2>
                 <div class="info__wrap">
-                    <p class="info__genre"> ${shortList} | ${release_date.slice(0, 4)} </p>
+                    <p class="info__genre"> ${shortList} | ${date} </p>
                     <div class="info__voteAverage"> 
                         <span class="info_voteValue"> ${vote_average} </span>
                     </div>
@@ -51,13 +55,17 @@ function movieTemplate(film) {
           return acc + ', ' + g;
         });
     }
+    let date = '';
+    if(release_date){
+      date = release_date.slice(0, 4);
+    }
     return `
         <li class="filmCard__wrap">
             <img data-id="${id}" src="${IMG_URL}${poster_path}" alt="${original_title}" loading="lazy" class="film__image"/>
             <div class="info">
                 <h2 class="info__title">${original_title}</h2>
                 <div class="info__wrap">
-                    <p class="info__genre"> ${shortList} | ${release_date.slice(0, 4)} </p>
+                    <p class="info__genre"> ${shortList} | ${date} </p>
                     <div class="info__voteAverage"> 
                         <span class="info_voteValue"> ${vote_average} </span>
                     </div>
