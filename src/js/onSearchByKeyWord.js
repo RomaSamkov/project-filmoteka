@@ -16,6 +16,7 @@ const onSearch = event => {
   
   userFilms.resetPage();
   renderMoviesAndPagination();
+  event.currentTarget.reset();
 };
 
 refs.formSearch.addEventListener('submit', onSearch);

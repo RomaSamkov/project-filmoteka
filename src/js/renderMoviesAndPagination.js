@@ -15,7 +15,6 @@ checkWhatPageRender();
 export default function renderMoviesAndPagination() {
   refs.filmsContainer.innerHTML = '';
   if (userFilms.userSearch) {
-    console.log(userFilms.userSearch);
     toggleDragonSpiner();
     userFilms.onSearchFilm()
       .then(({ results, page, total_pages }) => {
