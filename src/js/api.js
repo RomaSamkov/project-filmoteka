@@ -83,14 +83,13 @@ export { userFilms };
 
 function setCurrentPage(){
   const page = localStorage.getItem('page');
-
   if(!page) return 1;
+  
   return Number(page);
 };
 
 function setSearchQuery(){
   const search = localStorage.getItem('search');
-  console.log(search);
   if(!search) return '';
   
   return search;
