@@ -133,3 +133,15 @@ body {
   @include font(14px, 400, 1.14, 0.03em);
   color: var(--header-text-color);
 }
+
+.header__nav_mobile-style:not(:last-child){
+  @media screen and (max-width: 767px){
+  margin-right: 0;  
+  }  
+}
+
+.header__nav_mobile-style{
+  @media screen and (max-width: 767px){  
+     margin-left: 12px;
+    }
+}
