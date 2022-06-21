@@ -17,7 +17,8 @@ function renderWatchedMovies() {
     const markup = films.map(movieTemplate);
     refs.filmsContainer.innerHTML = markup.join('');
   }
-  // localStorage.setItem('library', 'watched');
+  
+  localStorage.setItem('library', 'watched');
 };
 
 function renderQueueMovies() {
@@ -36,7 +37,7 @@ function renderQueueMovies() {
     refs.filmsContainer.innerHTML = markup.join('');
   }
 
-  // localStorage.setItem('library', 'queue');
+  localStorage.setItem('library', 'queue');
 };
 
 export { renderWatchedMovies, renderQueueMovies };

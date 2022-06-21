@@ -21,6 +21,9 @@ function myLibraryHeaderTemplate() {
         <li class="header__nav">
           <a class="header__link link header-nav--pege" href="#">My Library</a>
         </li>
+        <li class="header__nav">
+          <a class="header__link link js-loginModal-openBtn js-logOutRef logBtn" href="#">Sign In</a>
+        </li>
       </ul>
     </div>
     <ul class="header__button list">
@@ -34,6 +37,7 @@ function myLibraryHeaderTemplate() {
           queue
         </button>
       </li>
+      
     </ul>
     <div class="switcher">
       <button class="switcher-theme-name">Light</button>
