@@ -29,7 +29,7 @@ ul {
   overflow: hidden;
 }
 
-.modal-backdrop  {
+.modal-backdrop {
   z-index: 999;
   position: fixed;
   width: 100%;
@@ -40,7 +40,8 @@ ul {
   transition: opacity 350ms;
 }
 
-.modal-closeButton, .js-loginModal-closeButton {
+.modal-closeButton,
+.js-loginModal-closeButton {
   background-color: transparent;
   border: none;
   padding: 0;
@@ -56,7 +57,7 @@ ul {
 }
 
 //-------------на логін/реєстрацію-----------
-.modalLogin-backdrop  {
+.modalLogin-backdrop {
   z-index: 999;
   position: fixed;
   width: 100%;
@@ -67,7 +68,7 @@ ul {
   transition: opacity 350ms;
 }
 
-.library-displayNone{
+.library-displayNone {
   display: none;
 }
 
@@ -76,52 +77,52 @@ ul {
   flex-wrap: wrap;
   justify-content: center;
   @media screen and (min-width: 767px) {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
   }
+}
+
+.modal-up__login {
+  width: calc(100% - 40px);
+  max-width: 450px;
+  position: absolute;
+  min-width: 280px;
+  height: calc(100% - 40px);
+  background: rgb(182, 179, 179);
+  background: linear-gradient(0deg, rgba(182, 179, 179, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 30px 20px 30px 20px;
+  overflow-y: scroll;
+  border-radius: 8px;
+
+  @media screen and (min-width: 767px) {
+    max-width: none;
+    max-height: 90vh;
+    width: 704px;
+    padding: 42px 30px 40px 30px;
+    height: auto;
   }
+  @media screen and (min-width: 1024px) {
+    height: 350px;
+    width: 750px;
+    padding: 35px 20px 35px 20px;
+  }
+}
 
-  .modal-up__login {
-     width: calc(100% - 40px);
-     max-width: 450px;
-     position: absolute;
-     min-width: 280px;
-     height: calc(100% - 40px);
-     background: rgb(182, 179, 179);
-     background: linear-gradient(0deg, rgba(182, 179, 179, 1) 0%, rgba(255, 255, 255, 1) 100%);
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%) scale(1);
-     padding: 30px 20px 30px 20px;
-     overflow-y: scroll;
-     border-radius: 8px;
-    
-     @media screen and (min-width: 767px) {
-      max-width: none;
-      max-height: 90vh;
-      width: 704px;
-      padding: 42px 30px 40px 30px;
-      height: auto;
-     }
-     @media screen and (min-width: 1024px) {
-        height: 350px;
-        width: 750px;
-        padding: 35px 20px 35px 20px;
-       }
-      }
+.modal-up__login::-webkit-scrollbar {
+  width: 0px;
+  scrollbar-width: none;
+}
 
-      .modal-up__login::-webkit-scrollbar {
-       width: 0px;
-       scrollbar-width: none;
-      }
-
-      .loginForm {
-       width: 320px;
-       margin: 0;
-       padding-top: 0;
-       padding-left: 30px;
-       padding-right: 30px;
-      }
+.loginForm {
+  width: 320px;
+  margin: 0;
+  padding-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
 .registerFormInput {
   margin: 0 0;
@@ -135,26 +136,42 @@ ul {
 }
 
 .regFormButton {
-   width: 150px;
-   height: 35px;
-   margin-top: 35px;
-   margin-left: 8px;
-   border-color: transparent;
-   @media screen and (min-width: 767px) {
+  width: 150px;
+  height: 35px;
+  margin-top: 35px;
+  margin-left: 8px;
+  border-color: transparent;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  border-width: 1px;
+  background-color: #ffffff;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: #ffffff;
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  }
+  @media screen and (min-width: 767px) {
     width: 200px;
     margin-left: 15px;
-   }
   }
-  
+}
+
 .registerFormInput:focus {
   border-color: var(--accent-color);
 }
 .registerForm {
-   margin: 0;
-   padding-top: 10px;
-   padding-left: 30px;
-   padding-right: 30px;
-  }
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
 .registerFormUnit {
   position: relative;
@@ -162,23 +179,23 @@ ul {
 }
 
 .registerModalText {
-   margin: 0;
-   padding-bottom: 6px;
-   margin-top: 10px;
-   text-align: center;
-   font-family: 'Roboto', sans-serif;
-   font-weight: 700;
-   font-size: 20px;
-   line-height: 1.5;
-   letter-spacing: 0.03em;
-   color: #000000;
-  }
+  margin: 0;
+  padding-bottom: 6px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: #000000;
+}
 
 .registerFormText {
   display: block;
   padding-top: 10px;
   padding-bottom: 4px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.2;
@@ -198,14 +215,25 @@ ul {
   width: 20px;
   height: 20px;
   border-color: transparent;
-}
-.openEye {
-  background: url(http://zornet.ru/ZORNET-RU/ZR/Alinuversa/amipsakilad/dsareqab.svg) 0 0 no-repeat;
-}
-.closedEye {
-  background: url(http://zornet.ru/ZORNET-RU/ZR/Alinuversa/amipsakilad/dsamudulas.svg) 0 0 no-repeat;
+  background-color: transparent;
 }
 
+.changeEyes {
+  display: none;
+}
+
+.eyeCange {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 0px;
+  right: 4px;
+  fill: #545454;
+  @media screen and (min-width: 767px) {
+    width: 18px;
+    height: 18px;
+  }
+}
 
 //-----------------------------
 
@@ -221,7 +249,6 @@ ul {
   transform: translate(-50%, -50%) scale(1);
   padding: 48px 20px 40px 20px;
   overflow-y: scroll;
-  
 
   @media screen and (min-width: 767px) {
     max-width: none;
@@ -433,8 +460,7 @@ ul {
   width: 36px;
   height: 16px;
   border-radius: 5px;
-  background-color: #F7F7F7;
-  
+  background-color: #f7f7f7;
 }
 
 .title-about {
