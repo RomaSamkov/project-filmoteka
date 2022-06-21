@@ -36,7 +36,7 @@ const footerContainer = document.querySelector('.footer');
 
 function checkedThem() {
   const currentTheme = localStorage.getItem('theme');
-  console.log(currentTheme);
+
   if (currentTheme === 'dark') {
     element.style.setProperty('--accent-color', darkTheme.accent);
     element.style.setProperty('--primari-white-color', darkTheme.main);
@@ -66,9 +66,8 @@ function checkedThem() {
   }
 }
 function switchTheme(event) {
-  console.dir(event.target.checked);
   const check = event.target.checked;
-  console.log(check);
+
   if (check) {
     localStorage.setItem('theme', 'dark');
   } else {

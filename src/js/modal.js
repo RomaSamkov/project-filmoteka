@@ -104,7 +104,7 @@ function onOpenModal(e) {
           const removeMovie = watchedMovies.filter(movie => movie.id !== respons.id);
           localStorage.setItem(key, JSON.stringify(removeMovie));
           watchedBtn.textContent = 'Add to Watched';
-          console.log();
+          
           if(document.querySelector('.js-watched-btn.isActive')){
             renderWatchedMovies();
           }
