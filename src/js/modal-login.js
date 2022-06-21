@@ -49,7 +49,7 @@ function onOpenLoginModal() {
     refs.backdropLogin.classList.remove('is-hidden');
     window.addEventListener('keydown', onEscKeyPress);
     refs.scrollOnModal.classList.toggle('scroll-blocked');
-   }
+  }
 }
 
 ///----------Eyes--------------
@@ -60,29 +60,37 @@ const inputChangeLog = document.querySelector('#logPassword');
 const btnRegChangePassword = document.querySelector('.regChangeBtn');
 const btnLogChangePassword = document.querySelector('.logChangeBtn');
 
+const openReg = document.querySelector('.openChangeReg');
+const closedReg = document.querySelector('.closedChangeReg');
+
+const openLog = document.querySelector('.openChangeLog');
+const closedLog = document.querySelector('.closedChangeLog');
+
 btnRegChangePassword.addEventListener('click', changePasswordInRegInput);
 btnLogChangePassword.addEventListener('click', changePasswordInLogInput);
 
 function changePasswordInRegInput() {
   if (inputChangeReg.getAttribute('type') == 'password') {
-    btnRegChangePassword.classList.add('closedEye');
-    btnRegChangePassword.classList.remove('openEye');
+    openReg.classList.add('changeEyes');
+    closedReg.classList.remove('changeEyes');
+
     inputChangeReg.setAttribute('type', 'text');
   } else {
-    btnRegChangePassword.classList.remove('closedEye');
-    btnRegChangePassword.classList.add('openEye');
+    openReg.classList.remove('changeEyes');
+    closedReg.classList.add('changeEyes');
     inputChangeReg.setAttribute('type', 'password');
   }
   return false;
 }
 function changePasswordInLogInput() {
   if (inputChangeLog.getAttribute('type') == 'password') {
-    btnLogChangePassword.classList.add('closedEye');
-    btnLogChangePassword.classList.remove('openEye');
+    openLog.classList.add('changeEyes');
+    closedLog.classList.remove('changeEyes');
+
     inputChangeLog.setAttribute('type', 'text');
   } else {
-    btnLogChangePassword.classList.remove('closedEye');
-    btnLogChangePassword.classList.add('openEye');
+    openLog.classList.remove('changeEyes');
+    closedLog.classList.add('changeEyes');
     inputChangeLog.setAttribute('type', 'password');
   }
   return false;
