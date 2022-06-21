@@ -3,10 +3,17 @@ import { refs } from './refs';
 import { userFilms } from './api';
 import renderMoviesAndPagination from './renderMoviesAndPagination';
 
-const onSearch = ev => {
-  ev.preventDefault();
+
+
+const onSearch = event => {
+  event.preventDefault();
   refs.filmsContainer.innerHTML = '';
-  userFilms.searchFilm = ev.target.elements.searchQuery.value.trim();
+  const searchQuery = event.target.elements.searchQuery.value.trim();
+
+  localStorage.setItem('search', searchQuery);
+  localStorage.setItem('page', 1);
+  userFilms.searchFilm = searchQuery;
+  
   userFilms.resetPage();
   renderMoviesAndPagination();
 };

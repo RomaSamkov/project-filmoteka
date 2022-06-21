@@ -33,6 +33,7 @@ function onMyLibraryBtnClick() {
   document.querySelector('.js-home-page').addEventListener('click', onLogoAndHomeLibrariHandler);
 
   localStorage.setItem('library', 'watched');
+  localStorage.setItem('search', '');
 };
 
 function onWatchedBtn() {

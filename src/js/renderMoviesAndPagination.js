@@ -10,10 +10,12 @@ import {renderQueueMovies} from './my-library/renderMyLibraryMovies';
 
 refs.headerLogo.addEventListener('click', onLogoAndHomeClickHandler);
 refs.headerHomePage.addEventListener('click', onLogoAndHomeClickHandler);
+checkWhatPageRender();
 
 export default function renderMoviesAndPagination() {
   refs.filmsContainer.innerHTML = '';
   if (userFilms.userSearch) {
+    console.log(userFilms.userSearch);
     toggleDragonSpiner();
     userFilms.onSearchFilm()
       .then(({ results, page, total_pages }) => {
@@ -39,23 +41,10 @@ export default function renderMoviesAndPagination() {
   }
 };
 
-// renderMoviesAndPagination();
-checkWhatPageRender();
-
 function renderTrendsOnMain(films) {
   const murkup = films.map(movieTemplate);
   refs.filmsContainer.innerHTML = murkup.join('');
 };
-
-
-export function onLogoAndHomeClickHandler(event){
-  event.preventDefault()
-  localStorage.setItem('page', '1');
-  localStorage.setItem('library', false);
-  userFilms.setPage(1);
-  renderMoviesAndPagination();
-};
-
 
 function checkWhatPageRender(){
   const library = localStorage.getItem('library');
@@ -73,3 +62,16 @@ function checkWhatPageRender(){
     renderMoviesAndPagination();
   };
 };
+
+
+function onLogoAndHomeClickHandler(event){
+  event.preventDefault()
+  localStorage.setItem('page', '1');
+  localStorage.setItem('library', false);
+  localStorage.setItem('search', '')
+  userFilms.setPage(1);
+  userFilms.userSearch = '';
+  renderMoviesAndPagination();
+};
+
+

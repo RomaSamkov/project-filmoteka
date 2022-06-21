@@ -22,7 +22,7 @@ function myLibraryHeaderTemplate() {
           <a class="header__link link header-nav--pege" href="#">My Library</a>
         </li>
         <li class="header__nav">
-          <a class="header__link link js-loginModal-openBtn js-logOutRef logBtn" href="#">Sign In</a>
+          <a class="header__link link js-loginModal-openBtn js-logOutRef logBtn librari-log" href="#">Sign In</a>
         </li>
       </ul>
     </div>
