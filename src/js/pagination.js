@@ -53,17 +53,28 @@ function onBtnClick(event) {
     case '»':
       userFilms.incrementPage();
       renderMoviesAndPagination();
+      scrollToTop();
       break;
     case '«':
       userFilms.decrementPage();
       renderMoviesAndPagination();
+      scrollToTop();
       break;
     case '...':
       break;
     default:
       userFilms.setPage(Number(target));
       renderMoviesAndPagination();
+      scrollToTop();
   }
   const page = JSON.stringify(userFilms.page);
   localStorage.setItem('page', page);
+}
+
+function scrollToTop(){
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+});
 }
