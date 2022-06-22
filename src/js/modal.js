@@ -11,7 +11,8 @@ function onOpenModal(e) {
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
-  }
+  }else if (e.target.classList.value === 'img_r') return;
+  
   refs.modalContainer.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscKeyPress);
