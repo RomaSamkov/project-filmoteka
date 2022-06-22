@@ -18,7 +18,7 @@ function myLibraryHeaderTemplate() {
         <li class="header__nav">
           <a class="header__link link js-home-page" href="./index.html">Home</a>
         </li>
-        <li class="header__nav">
+        <li class="header__nav library-move">
           <a class="header__link link header-nav--pege" href="#">My Library</a>
         </li>
         <li class="header__nav">

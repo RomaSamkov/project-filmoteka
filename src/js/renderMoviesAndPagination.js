@@ -58,14 +58,14 @@ function checkWhatPageRender(){
   const library = localStorage.getItem('library');
   
   if(library === 'watched'){
-    console.log('render watched page');
     onMyLibraryBtnClick();
+
   }else if (library === 'queue'){
-    console.log('render queue page');
     onMyLibraryBtnClick();
     renderQueueMovies();
     document.querySelector('.js-watched-btn').classList.remove('isActive');
     document.querySelector('.js-queue-btn').classList.add('isActive');
+    
   }else {
     renderMoviesAndPagination();
   };
