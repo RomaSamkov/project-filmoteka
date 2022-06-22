@@ -77,7 +77,6 @@ logSubmitData.addEventListener('click', () => {
   signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       // Signed in
-      // console.log('Signed in');
 
       const user = userCredential.user;
       refs.backdropLogin.classList.add('is-hidden');
@@ -90,7 +89,6 @@ logSubmitData.addEventListener('click', () => {
       })
         .then(() => {
           // Data saved successfully!
-          //alert('user logget in successfully');
           Notiflix.Notify.success('Welcome to Filmoteka!');
         })
         .catch(error => {
@@ -110,7 +108,7 @@ logSubmitData.addEventListener('click', () => {
 
 function onLogOut() {
   signOut(auth);
-  //alert('Sign-out successful');
+
   Notiflix.Notify.info('Sign-out successful');
 }
 
@@ -146,7 +144,5 @@ onAuthStateChanged(auth, user => {
     const markupIdAndSignOut = `<a > Sign In</a>`;
     headerSigneddOutBtn.innerHTML = markupIdAndSignOut;
     refs.logOutRef.removeEventListener('click', onLogOut);
-
-    // alert('User is signed out')
   }
 });
