@@ -1,7 +1,6 @@
 import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { userFilms } from './api';
-import { validationSearchedArray } from './onSearchByKeyWord';
 import movieTemplate from './movieTamplate';
 import createPagination from './pagination';
 import toggleDragonSpiner from './spiner';
@@ -13,13 +12,23 @@ refs.headerHomePage.addEventListener('click', onLogoAndHomeClickHandler);
 checkWhatPageRender();
 
 export default function renderMoviesAndPagination() {
-  refs.filmsContainer.innerHTML = '';
   if (userFilms.userSearch) {
     toggleDragonSpiner();
     userFilms.onSearchFilm()
       .then(({ results, page, total_pages }) => {
         setTimeout(() => {
-          if (validationSearchedArray(results)) return;
+          if (results.length === 0) {
+
+            Notiflix.Notify.failure(
+              'Sorry, there are no videos matching your search query. Please try again.',
+            );
+            refs.filmsContainer.innerHTML = renderNotResults();
+            createPagination(1, 1);
+            toggleDragonSpiner();
+            localStorage.setItem('page', '1');
+            localStorage.setItem('search', '')
+            return;
+          }
           renderTrendsOnMain(results);
           createPagination(page, total_pages);
           toggleDragonSpiner();
@@ -74,3 +83,6 @@ function onLogoAndHomeClickHandler(event){
 };
 
 
+function renderNotResults() {
+  return `<li class="no-results"><img src='https://i.gifer.com/4m3f.gif' alt="No results" width= "100" class="img_r"/></li>`;
+}
