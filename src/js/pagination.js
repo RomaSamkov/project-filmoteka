@@ -64,6 +64,6 @@ function onBtnClick(event) {
       userFilms.setPage(Number(target));
       renderMoviesAndPagination();
   }
-  const page = JSON.stringify(userFilms.page)
+  const page = JSON.stringify(userFilms.page);
   localStorage.setItem('page', page);
 }
